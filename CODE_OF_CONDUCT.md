@@ -39,13 +39,13 @@ We agree to restrict the following behaviors in our community. Instances, threat
 1. **Misleading identity.** Impersonating someone else for any reason, or pretending to be someone else to evade enforcement actions
 2. **Failing to credit sources.** Not properly crediting the sources of content you contribute
 3. **Promotional materials.** Sharing marketing or other commercial content in a way that is outside the norms of the community
-4. **Irresponsible communication.** Failing to responsibly present content which includes, links or describes any other restricted behaviors
+4. **Irresponsible communication.** Failing to responsibly present content which includes, links to, or describes any other restricted behaviors
 
 ## 📣 Reporting an Issue
 
 Tensions can occur between community members even when they are trying their best to collaborate. Not every conflict represents a code of conduct violation, and this Code of Conduct reinforces encouraged behaviors and norms that can help avoid conflicts and minimize harm.
 
-When an incident does occur, it is important to report it promptly. To report a possible violation, **open an issue or contact the project maintainers directly**.
+When an incident does occur, it is important to report it promptly. To report a possible violation, **contact the project maintainers directly**.
 
 Community Moderators take reports of violations seriously and will make every effort to respond in a timely manner. They will investigate all reports of code of conduct violations, reviewing messages, logs, and recordings, or interviewing witnesses and other participants. Community Moderators will keep investigation and enforcement actions as transparent as possible while prioritizing safety and confidentiality.
 
@@ -77,7 +77,7 @@ If an investigation by the Community Moderators finds that this Code of Conduct 
 - **Consequence:** Access to all community spaces, tools, and communication channels is removed. Permanent bans should be rarely used, should have strong reasoning behind them, and should only be resorted to if working through other remedies has failed to change the behavior
 - **Repair:** There is no possible repair in cases of this severity
 
-This enforcement ladder is intended as a guideline. It does not limit the ability of Community Managers to use their discretion and judgment, in keeping with the best interests of our community.
+This enforcement ladder is intended as a guideline. It does not limit the ability of Community Moderators to use their discretion and judgment, in keeping with the best interests of our community.
 
 ## 🌐 Scope
 

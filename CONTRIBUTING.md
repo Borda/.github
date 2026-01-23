@@ -60,7 +60,7 @@ When reporting a bug:
 
 ### Before Opening a PR
 
-Complete this checklist (also in the PR template):
+Complete this checklist before opening a pull request:
 
 - [ ] Self-reviewed my code
 - [ ] Ran tests locally and they pass
@@ -118,13 +118,19 @@ git clone https://github.com/YOUR-USERNAME/REPO-NAME.git
 # 3. Create a feature branch
 git checkout -b feature/amazing-feature
 
-# 4. Make your changes, then commit
+# 4. Make your changes
+
+# 5. Check status and stage your changes
+git status
+git add -A
+
+# 6. Commit your changes
 git commit -m "Add amazing feature"
 
-# 5. Push to your fork
+# 7. Push to your fork
 git push origin feature/amazing-feature
 
-# 6. Open a Pull Request
+# 8. Open a Pull Request
 ```
 
 ---
