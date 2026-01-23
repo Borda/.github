@@ -1,99 +1,125 @@
-# Contributing to This Project
+# Contributing Guide
 
-We're thrilled that you're interested in contributing! This guide will help you get started and ensure a smooth collaboration experience.
+Thank you for your interest in contributing! We appreciate all contributions and welcome everyone.
 
-## 📖 Before You Start
+> **First time contributing to open source?** Check out [First Contributions](https://github.com/firstcontributions/first-contributions) for a beginner-friendly guide.
 
-**Please take time to:**
+## 📜 Code of Conduct
 
-- **Read the documentation** – Familiarize yourself with how the project works
-- **Explore the codebase** – Understand the structure and coding patterns used
-- **Search existing issues** – Your question or idea might already be discussed
+Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md). We expect all contributors to be respectful, considerate, and help create a welcoming environment for everyone.
 
-## 💬 Communication First
+## 🎯 Ways to Contribute
 
-### Asking Questions
+There are many ways to contribute beyond writing code:
 
-Before diving into code, feel free to ask questions! Open an issue or use discussions to:
+| Contribution | Description |
+|--------------|-------------|
+| 🐛 Report bugs | Found an issue? Let us know! |
+| 📖 Improve docs | Fix typos, clarify explanations, add examples |
+| 🔍 Triage issues | Help categorize and reproduce reported issues |
+| 👀 Review PRs | Provide feedback on pull requests |
+| 💬 Answer questions | Help others in discussions and issues |
+| ⭐ Spread the word | Star the repo, share it, write about it |
+
+## 💬 Before You Start
+
+### Read First
+
+- **Documentation** – Understand how the project works
+- **Existing issues** – Your idea might already be discussed
+- **Codebase** – Familiarize yourself with the code structure
+
+### Ask Questions
+
+Don't hesitate to ask! Open an issue or use discussions to:
 
 - Clarify project goals and scope
 - Understand implementation details
 - Get guidance on where to contribute
 
-### Feature Requests
+## 🐛 Reporting Bugs
 
-**Before submitting a feature request:**
+When reporting a bug:
 
-1. Check if a similar feature has been requested or discussed
-2. Open an issue describing your idea and use case
-3. **Wait for maintainer feedback** before starting implementation
+1. **Search existing issues** – It might already be reported
+2. **Create a minimal reproduction** – Help us help you
+3. **Include environment details** – OS, version, dependencies
+4. **Describe expected vs actual behavior** – Be specific
 
-> ⚠️ **Important:** Always get confirmation before implementing new features. This ensures your work aligns with the project direction and won't be wasted effort.
+## 💡 Proposing Features
 
-## 🐛 Bug Fixes & Tests
+**Before implementing a feature:**
 
-Bug fixes and test improvements are **always welcome**! These contributions help improve stability and are greatly appreciated.
+1. **Open an issue first** – Describe your idea and use case
+2. **Wait for feedback** – Get confirmation from maintainers
+3. **Discuss alternatives** – There might be better approaches
 
-When fixing bugs:
+> ⚠️ **Important:** Always get confirmation before implementing new features. This ensures your work aligns with project direction and won't be wasted effort.
 
-- Reference the related issue in your PR
-- Include a test case that reproduces the bug (when applicable)
-- Explain what caused the bug and how your fix addresses it
-
-## 🔗 Pull Request Guidelines
+## 🔧 Pull Requests
 
 ### Before Opening a PR
 
-Please complete the following checklist (also described in the PR template):
+Complete this checklist (also in the PR template):
 
-- [ ] **Self-review** your code thoroughly
-- [ ] **Run tests** locally and ensure they pass
-- [ ] **Follow code style** consistent with the project
-- [ ] **Update documentation** if needed
-- [ ] **Link related issues** using keywords like `Fixes #123` or `Relates to #456`
+- [ ] Self-reviewed my code
+- [ ] Ran tests locally and they pass
+- [ ] Added tests for new functionality
+- [ ] Updated documentation if needed
+- [ ] Followed existing code style
+- [ ] Linked to related issue(s)
 
-### Always Link Issues
+### Linking Issues
 
-Every PR should reference an existing issue. If there isn't one:
+**Every PR should reference an issue.** Use keywords like:
 
-1. Open an issue first to discuss the change
-2. Wait for feedback
-3. Then submit your PR linking to that issue
+- `Fixes #123` – Closes the issue when PR is merged
+- `Relates to #456` – Links without auto-closing
 
-This keeps discussions organized and helps maintainers track progress.
+If no issue exists, open one first to discuss the change.
 
-## 🤝 Code of Conduct
+### Keep PRs Focused
 
-### Be Respectful
+- One PR = one logical change
+- Smaller PRs are easier to review
+- Split large changes into multiple PRs
 
-- Be polite and humble in all interactions
-- Accept constructive feedback graciously
-- Respect maintainers' decisions and time
-- Help others when you can
+## ✅ Tests and Fixes
 
-### Responsible Development
+Bug fixes and test improvements are **always welcome**! These contributions:
 
-- Write clean, maintainable code
-- Consider security implications
-- Think about backwards compatibility
-- Document your changes appropriately
+- Improve project stability
+- Help catch future regressions
+- Reduce maintainer burden
+
+When fixing bugs, include a test that would have caught it.
 
 ## ✨ Quality Expectations
 
 > **Always do your best – that's the only quality requirement.**
 
-We don't expect perfection, but we do expect genuine effort. If you're unsure about something, ask! We're here to help you succeed.
+We don't expect perfection. We expect genuine effort. If you're unsure about something, ask!
 
-## 🚀 Getting Started
+## 🚀 Quick Start
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes
-4. Run tests and linting
-5. Commit with clear, descriptive messages
-6. Push to your fork
-7. Open a Pull Request
+```bash
+# 1. Fork the repository
+
+# 2. Clone your fork
+git clone https://github.com/YOUR-USERNAME/REPO-NAME.git
+
+# 3. Create a feature branch
+git checkout -b feature/amazing-feature
+
+# 4. Make your changes, then commit
+git commit -m "Add amazing feature"
+
+# 5. Push to your fork
+git push origin feature/amazing-feature
+
+# 6. Open a Pull Request
+```
 
 ---
 
-Thank you for contributing! Your time and effort are valued. 💙
+Thank you for contributing! 💙
