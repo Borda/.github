@@ -96,7 +96,14 @@ When fixing bugs, include a test that would have caught it.
 
 ## ✨ Quality Expectations
 
-> **Always do your best – that's the only quality requirement.**
+> **Always do your best – that's the essential spirit of OSS contributions.**
+
+We value all levels of contribution and want to encourage everyone, regardless of skill level or time available. What matters is being reasonable and meaningful about what you can deliver:
+
+- **Start small and iterate** – Better to do smaller tasks piece by piece than take too much and leave it unfinished
+- **Break work into steps** – This allows others to take over and continue if needed
+- **Avoid abandoned PRs** – Forked PRs are difficult to carry over except by maintainers, creating significant burden
+- **Be meaningful and reasonable** – Contribute what you can realistically complete
 
 We don't expect perfection. We expect genuine effort. If you're unsure about something, ask!
 
