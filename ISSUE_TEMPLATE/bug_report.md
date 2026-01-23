@@ -47,6 +47,16 @@ These are example fields; feel free to customize them for this specific reposito
 - Runtime / language version: [e.g. Python 3.11, Node.js 20, Java 21, Go 1.22]
 - Library / framework version: [e.g. package version, framework version, toolchain version]
 - Hardware / accelerator details (if applicable): [e.g. GPU model, CUDA/OpenCL version, CPU architecture]
+- Project version: [e.g. commit hash, release version]
+-->
+
+<!--
+These are example fields; feel free to customize them for this specific repository.
+
+- OS: [e.g. Ubuntu 20.04, macOS 13, Windows 11]
+- Runtime / language version: [e.g. Python 3.11, Node.js 20, Java 21, Go 1.22]
+- Library / framework version: [e.g. package version, framework version, toolchain version]
+- Hardware / accelerator details (if applicable): [e.g. GPU model, CUDA/OpenCL version, CPU architecture]
 -->
 
 **Additional context**
