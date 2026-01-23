@@ -41,11 +41,12 @@ Steps to reproduce the behavior:
 **Environment (please complete the following information):**
 
 <!--
+These are example fields; feel free to customize them for this specific repository.
+
 - OS: [e.g. Ubuntu 20.04, macOS 13, Windows 11]
-- Python version: [e.g. 3.10, 3.11]
-- Package version: [e.g. 0.1.0]
-- CUDA version (if applicable): [e.g. 11.8, 12.1]
-- GPU model (if applicable): [e.g. NVIDIA RTX 3090]
+- Runtime / language version: [e.g. Python 3.11, Node.js 20, Java 21, Go 1.22]
+- Library / framework version: [e.g. package version, framework version, toolchain version]
+- Hardware / accelerator details (if applicable): [e.g. GPU model, CUDA/OpenCL version, CPU architecture]
 -->
 
 **Additional context**
