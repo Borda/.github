@@ -47,6 +47,7 @@ Tensions can occur between community members even when they are trying their bes
 
 When an incident does occur, it is important to report it promptly. To report a possible violation, **contact the project maintainers directly**.
 
+For this project, **Community Moderators** are the project maintainers responsible for handling Code of Conduct reports and enforcement.
 Community Moderators take reports of violations seriously and will make every effort to respond in a timely manner. They will investigate all reports of code of conduct violations, reviewing messages, logs, and recordings, or interviewing witnesses and other participants. Community Moderators will keep investigation and enforcement actions as transparent as possible while prioritizing safety and confidentiality.
 
 ## ⚖️ Addressing and Repairing Harm

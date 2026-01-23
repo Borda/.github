@@ -49,7 +49,7 @@ When reporting a bug, providing clear and detailed information helps us fix it f
 
 1. **Search existing issues** – The bug might already be reported and being worked on.
 2. **Create a minimal reproduction** – Provide a simple example that demonstrates the bug. This makes it easier for us to reproduce and fix the issue.
-3. **Include environment details** – Tell us your operating system, node version, browser, and any other relevant dependencies.
+3. **Include environment details** – Tell us your operating system, relevant runtime or application version, and any other important tools or dependencies (for example, database, browser, CLI, or framework versions).
 4. **Describe expected vs actual behavior** – Be specific about what you expected to happen and what actually occurred.
 
 ## 🛠️ Fixing Bugs
