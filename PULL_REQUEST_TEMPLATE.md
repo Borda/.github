@@ -1,3 +1,9 @@
+<!--
+Title Suggestion -> Prefix your PR title with an emoji for quick visual identification...
+🐛Fix: | ✨Feature: | 💥Breaking: | 📝Docs: | ♻️Refactor: | ⚡Performance: | 🔒Security:
+Example: "🐛Fix: Patch null pointer exception in parser"
+-->
+
 <details>
 <summary>Checklist, before you create PR</summary>
 
