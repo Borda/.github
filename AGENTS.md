@@ -157,7 +157,7 @@ def calculate_velocity(distance: float, time: float) -> float:
 ## ⚖️ Conflict Mitigation
 
 1.  **Evidence First**: Disputes must be backed by data/benchmarks, not opinions.
-2.  **Escalation Path**: Engineer → QA → Human reviewer if unresolved.
+2.  **Escalation Path**: SW Engineer → QA → Human reviewer if unresolved.
 3.  **Decision Log**: Document rationale for controversial decisions in `DECISIONS.md`.
 
 ---
