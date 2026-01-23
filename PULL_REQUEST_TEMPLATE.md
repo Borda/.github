@@ -5,7 +5,7 @@ Example: "🐛Fix: Patch null pointer exception in parser"
 -->
 
 <details>
-<summary>Checklist, before you create PR</summary>
+<summary>Checklist, before you create a PR</summary>
 
 - [ ] Followed existing code style
 - [ ] Added tests for new functionality
