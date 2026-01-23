@@ -57,6 +57,8 @@ When reporting a bug, providing clear and detailed information helps us fix it f
 Bug fixing is a great way to contribute! Here's how to get started:
 
 1. **Find a bug to fix** – Look for issues labeled `bug` or `help wanted` in the issue tracker.
+   - Check if the issue is already assigned to someone
+   - If it's assigned but has no activity for a while, comment to ask if you can take it over
 2. **Understand the problem** – Read the issue carefully and try to reproduce the bug.
 3. **Investigate and fix** – Identify the root cause and implement a fix. Keep your changes focused on the specific issue.
 4. **Test your fix** – Write or update tests to verify your fix works and prevents the bug from recurring.
@@ -86,6 +88,8 @@ Here's how to suggest and implement improvements:
 **Before implementing any new feature:**
 
 1. **Open an issue first** – Clearly describe your idea, use case, and how it benefits the project.
+   - Check if the issue is already assigned to someone
+   - If it's assigned but has no activity for a while, comment to ask if you can take it over
 2. **Wait for maintainer approval** – Look for a **👍 "go-ahead" reaction** or explicit approval from a maintainer.
 3. **Discuss and refine** – Engage in the issue discussion to clarify requirements and explore alternatives.
 4. **Get consensus** – Ensure there's general agreement from the community before starting implementation.
@@ -105,12 +109,12 @@ Here's how to suggest and implement improvements:
 
 Complete this checklist before opening a pull request to ensure quality and smooth review:
 
-- [ ] Self-reviewed my code – Check for errors, typos, and adherence to code style
-- [ ] Ran tests locally and they pass – Verify that your changes don't break existing functionality
-- [ ] Added tests for new functionality – Tests ensure your changes work correctly and prevent future regressions
-- [ ] Updated documentation if needed – Keep docs in sync with code changes
-- [ ] Followed existing code style – Maintain consistency with the existing codebase
-- [ ] Linked to related issue(s) – Provide context about the purpose of your changes
+- [ ] Followed existing code style
+- [ ] Added tests for new functionality
+- [ ] Ran tests locally and they pass
+- [ ] Updated documentation if needed
+- [ ] Self-reviewed my code
+- [ ] Linked to related issue(s)
 
 ### Linking Issues
 
@@ -127,15 +131,15 @@ If no issue exists, open one first to discuss the change before implementing it.
 - **Smaller PRs are easier to review** – Large PRs can be overwhelming and take longer to merge
 - **Split large changes into multiple PRs** – Break complex features into smaller, manageable pieces
 
-## ✅ Tests and Fixes
+## ✅ Tests and Quality Assurance
 
-Bug fixes and test improvements are **always welcome**! These contributions are highly valuable because they:
+Tests and quality improvements are **always welcome**! These contributions are highly valuable because they:
 
-- Improve project stability – Fixing bugs makes the project more reliable for everyone
-- Help catch future regressions – Tests prevent the same issue from happening again
-- Reduce maintainer burden – Well-tested code requires less ongoing maintenance
+- Improve project stability – Well-tested code is more reliable for everyone
+- Help catch future regressions – Tests prevent issues from reoccurring
+- Reduce maintainer burden – Comprehensive tests require less ongoing debugging
 
-When fixing bugs, include a test that would have caught the issue. This ensures the bug stays fixed in future versions.
+For information about testing when fixing bugs, see the [Fixing Bugs](#%EF%B8%8F-fixing-bugs) section.
 
 ## 💎 Quality Expectations
 
