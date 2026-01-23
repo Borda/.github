@@ -18,18 +18,19 @@ Managing community health files across multiple repositories can be tedious and 
 **When does this matter?** For small projects or those just starting out, having individual configuration files is often overkill. These defaults provide a solid foundation until a project grows large enough to require customization.
 
 > ⚠️ **Important for forked repositories**: If you fork one of Borda's repositories, these defaults from the organization `.github` will **not** be honored because your fork is no longer part of the Borda organization. You'll need to either:
+>
 > 1. Copy the files you need into your forked repository, or
 > 2. Create your own organization's `.github` repository (see [Using This as Your Template](#-using-this-as-your-template) below)
 
 ## 📦 What's Included
 
-| File                                                   | Description |
-|--------------------------------------------------------|-------------|
+| File                                                   | Description                                      |
+| ------------------------------------------------------ | ------------------------------------------------ |
 | [`CONTRIBUTING.md`](CONTRIBUTING.md)                   | Guidelines for contributing to any Borda project |
-| [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md)             | Community standards and enforcement ladder |
+| [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md)             | Community standards and enforcement ladder       |
 | [`AGENTS.md`](AGENTS.md)                               | AI agent configuration and engineering standards |
-| [`PULL_REQUEST_TEMPLATE.md`](PULL_REQUEST_TEMPLATE.md) | Default PR template with checklist |
-| [`ISSUE_TEMPLATE/...`](ISSUE_TEMPLATE/)                | Bug report and feature request templates |
+| [`PULL_REQUEST_TEMPLATE.md`](PULL_REQUEST_TEMPLATE.md) | Default PR template with checklist               |
+| [`ISSUE_TEMPLATE/...`](ISSUE_TEMPLATE/)                | Bug report and feature request templates         |
 
 ## 🔄 How GitHub Inheritance Works
 
@@ -64,9 +65,9 @@ GitHub automatically uses files from this `.github` repository as **fallback def
 ```
 
 **Official Documentation:**
- - [Creating default community health files](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)
- - [About community profiles for public repositories](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)
 
+- [Creating default community health files](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)
+- [About community profiles for public repositories](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)
 
 ### Key Behaviors
 
@@ -228,7 +229,7 @@ Please open a PR or issue. Improvements here benefit the entire Borda organizati
 - [GitHub: About community profiles](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)
 - [Contributor Covenant](https://www.contributor-covenant.org/) — basis for our Code of Conduct
 
----
+______________________________________________________________________
 
 <div align="center">
 
