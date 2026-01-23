@@ -12,16 +12,16 @@ Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md). We expect all 
 
 There are many ways to contribute beyond writing code. Every contribution, no matter how small, makes a difference:
 
-| Contribution | Description |
-|--------------|-------------|
-| 🐛 Report bugs | Found an issue? Let us know! Detailed bug reports help us fix problems faster. |
-| 🛠️ Fix bugs | Implement fixes for reported issues. Great way to start contributing! |
-| 💡 Suggest improvements | Propose enhancements, optimizations, or better approaches to existing functionality |
-| ✨ Build features | Implement new features after getting maintainer approval |
-| 📖 Improve docs | Fix typos, clarify explanations, or add examples. Good documentation makes the project accessible to more people. |
-| 👀 Review PRs | Provide feedback on pull requests. Code reviews help maintain quality and catch potential issues early. |
-| 💬 Answer questions | Help others in discussions and issues. Your knowledge can help someone overcome a problem. |
-| ⭐ Spread the word | Star the repo, share it with others, or write about your experience. This helps the project grow and attract more contributors. |
+| Contribution            | Description                                                                                                                     |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| 🐛 Report bugs          | Found an issue? Let us know! Detailed bug reports help us fix problems faster.                                                  |
+| 🛠️ Fix bugs             | Implement fixes for reported issues. Great way to start contributing!                                                           |
+| 💡 Suggest improvements | Propose enhancements, optimizations, or better approaches to existing functionality                                             |
+| ✨ Build features       | Implement new features after getting maintainer approval                                                                        |
+| 📖 Improve docs         | Fix typos, clarify explanations, or add examples. Good documentation makes the project accessible to more people.               |
+| 👀 Review PRs           | Provide feedback on pull requests. Code reviews help maintain quality and catch potential issues early.                         |
+| 💬 Answer questions     | Help others in discussions and issues. Your knowledge can help someone overcome a problem.                                      |
+| ⭐ Spread the word      | Star the repo, share it with others, or write about your experience. This helps the project grow and attract more contributors. |
 
 ## 💬 Before You Start
 
@@ -69,6 +69,7 @@ Bug fixing is a great way to contribute! Here's how to get started:
 ## 💡 Suggesting Improvements
 
 Improvements are enhancements to existing functionality that make the project better. They could be:
+
 - Performance optimizations
 - Code refactoring for better maintainability
 - User experience enhancements
@@ -178,6 +179,6 @@ git push origin feature/amazing-feature
 # 7. Open a Pull Request
 ```
 
----
+______________________________________________________________________
 
 Thank you for contributing! 💙

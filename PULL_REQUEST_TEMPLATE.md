@@ -28,6 +28,7 @@ List any dependencies that are required for this change.
 -->
 
 Fixes #(issue-number)
+
 <!-- Or use: Relates to #123 (links without auto-closing) -->
 
 ## Type of change
