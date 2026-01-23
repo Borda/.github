@@ -136,7 +136,7 @@ def calculate_velocity(distance: float, time: float) -> float:
 
 | Agent Role          | Branch Access  | PR Review  | Issue Commenting | Merge Block  |
 | :------------------ | :------------- |:----------:|:----------------:|:------------:|
-| Engineer            | `main`, `dev`  |     ✅      |         ✅        |      ❌       |
+| SW Engineer         | `main`, `dev`  |     ✅      |         ✅        |      ❌       |
 | QA Specialist       | `main`, `dev`  |     ✅      |         ✅        |      ✅       |
 | Performance Guardian| `main`, `dev`  |     ✅      |         ✅        |      ❌       |
 | Doc-Scribe          | `docs`, `main` |     ✅      |         ✅        | ✅ (releases) |
