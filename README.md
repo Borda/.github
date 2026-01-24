@@ -226,7 +226,7 @@ This repository is open source and can serve as a template for your own organiza
 
 ```markdown
 <!-- In your CONTRIBUTING.md or README.md -->
-> This project's community health files were inspired by [Borda's defaults](https://github.com/Borda/.github).
+> This project's community health files were inspired by [Borda's defaults](https://github.com/BordXXXXXXXXXXa/.github).
 ```
 
 ## 🤝 Contributing to These Defaults

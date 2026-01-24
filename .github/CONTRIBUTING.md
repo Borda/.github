@@ -52,8 +52,6 @@ When reporting a bug, providing clear and detailed information helps us fix it f
 3. **Include environment details** – Tell us your operating system, relevant runtime or application version, and any other important tools or dependencies (for example, database, browser, CLI, or framework versions).
 4. **Describe expected vs actual behavior** – Be specific about what you expected to happen and what actually occurred.
 
-<div id="fixing-bugs"></div>
-
 ## 🛠️ Fixing Bugs
 
 Bug fixing is a great way to contribute! Here's how to get started:
@@ -142,7 +140,7 @@ Tests and quality improvements are **always welcome**! These contributions are h
 - Help catch future regressions – Tests prevent issues from reoccurring
 - Reduce maintainer burden – Comprehensive tests require less ongoing debugging
 
-For information about testing when fixing bugs, see the [Fixing Bugs](#fixing-bugs) section.
+For information about testing when fixing bugs, see the [Fixing Bugs](#-fixing-bugs) section.
 
 ## 💎 Quality Expectations
 
