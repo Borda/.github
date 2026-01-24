@@ -181,4 +181,10 @@ git push origin feature/amazing-feature
 
 ______________________________________________________________________
 
-Thank you for contributing! 💙
+<div align="center">
+
+**Questions about security?** Contact the project maintainers privately.
+
+Made with 💙 by the Borda et al.
+
+</div>

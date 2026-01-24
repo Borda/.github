@@ -28,6 +28,7 @@ Managing community health files across multiple repositories can be tedious and 
 | -------------------------------------------------------------- | ------------------------------------------------ |
 | [`CONTRIBUTING.md`](.github/CONTRIBUTING.md)                   | Guidelines for contributing to any Borda project |
 | [`CODE_OF_CONDUCT.md`](.github/CODE_OF_CONDUCT.md)             | Community standards and enforcement ladder       |
+| [`SECURITY.md`](.github/SECURITY.md)                           | Security policy and vulnerability reporting      |
 | [`PULL_REQUEST_TEMPLATE.md`](.github/PULL_REQUEST_TEMPLATE.md) | Default PR template with checklist               |
 | [`ISSUE_TEMPLATE/...`](.github/ISSUE_TEMPLATE/)                | Bug report and feature request templates         |
 
