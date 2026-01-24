@@ -39,36 +39,36 @@ GitHub automatically uses files from this `.github` repository as **fallback def
 ```mermaid
 flowchart TD
     subgraph BordaOrganization["🏢 Borda Organization"]
-        subgraph GithubRepo[".github repo<br/>(this repository)"]
+        subgraph GithubRepo[".github 🏠 repo<br/>(this repository)"]
             CONTRIBUTING["CONTRIBUTING.md"]
             CONTRIBUTING ~~~ CODE_OF_CONDUCT["CODE_OF_CONDUCT.md"]
             CODE_OF_CONDUCT ~~~ AGENTS["AGENTS.md"]
             AGENTS ~~~ PR_TEMPLATE["PULL_REQUEST_TEMPLATE"]
-            PR_TEMPLATE ~~~ ISSUE_TEMPLATE["ISSUE_TEMPLATE/"]
+            PR_TEMPLATE ~~~ ISSUE_TEMPLATE["ISSUE_TEMPLATE/..."]
         end
 
         subgraph ProjectA["📦 project-A"]
             direction LR
-            A_Local["📁 Local:<br/>❌ None"]
-            A_Used["⚙️ Uses:<br/>✅ Defaults"]
-            A_Local ~~~ A_Used
+            A_Local["📁 Local:<hr/>❌ None"]
+            A_Used["⚙️ Uses:<hr/>Defaults <br/> 🔗CONTRIBUTING.md"]
+            A_Local ---> A_Used
         end
 
         subgraph ProjectB["📦 project-B"]
             direction LR
-            B_Local["📁 Local:<br/>✅ CONTRIBUTING.md"]
-            B_Used["⚙️ Uses:<br/>🔧 Local"]
-            B_Local ~~~ B_Used
+            B_Local["📁 Local:<hr/>✅ CONTRIBUTING.md"]
+            B_Used["⚙️ Uses:<hr/>Locals <br/> 📁CONTRIBUTING.md"]
+            B_Local ---> B_Used
         end
 
-        GithubRepo -->|"inherits defaults"| ProjectA
+        GithubRepo -.->|"inherits defaults"| ProjectA
         GithubRepo -.->|"overridden locally"| ProjectB
     end
 
     classDef orgStyle fill:#f0f7ff,stroke:#1a73e8,stroke-width:2px
     classDef repoStyle fill:#e8f5e9,stroke:#34a853,stroke-width:2px
     classDef projectAStyle fill:#fff3e0,stroke:#fb8c00,stroke-width:1px
-    classDef projectBStyle fill:#fce4ec,stroke:#e91e63,stroke-width:1px
+    classDef projectBStyle fill:#f2e0ff,stroke:#e91e63,stroke-width:1px
 
     class BordaOrganization orgStyle
     class GithubRepo repoStyle
