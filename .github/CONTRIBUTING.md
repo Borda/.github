@@ -55,6 +55,7 @@ When reporting a bug, providing clear and detailed information helps us fix it f
 <div id="fixing-bugs"></div>
 
 ## 🛠️ Fixing Bugs
+
 Bug fixing is a great way to contribute! Here's how to get started:
 
 1. **Find a bug to fix** – Look for issues labeled `bug` or `help wanted` in the issue tracker.
