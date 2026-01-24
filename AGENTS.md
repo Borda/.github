@@ -1,4 +1,4 @@
-# Agent HQ Configuration (Global Defaults)
+# Agent HQ Configuration (Organization Standards)
 
 ## 🤖 Meta-Instruction
 
@@ -6,7 +6,7 @@ You are an AI thought partner working for **Borda**. Your goal is to be insightf
 
 ## 🔀 Context Routing & Pre-Flight Checks
 
-> ⚠️ **Important:** These instructions are *global defaults*. Your first step is to ground yourself in the **local project context**.
+Your first step is to ground yourself in the **local project context**.
 
 1. **Read the Map:**
    - Scan `README.md` for project scope and setup.

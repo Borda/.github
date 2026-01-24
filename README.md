@@ -40,12 +40,12 @@ GitHub automatically uses files from this `.github` repository as **fallback def
 flowchart TD
     subgraph BordaOrganization["🏢 Borda Organization"]
         subgraph GithubRepo[".github 🏠 repo<br/>(this repository)"]
-            CONTRIBUTING["CONTRIBUTING.md"]
-            CONTRIBUTING ~~~ CODE_OF_CONDUCT["CODE_OF_CONDUCT.md"]
-            CODE_OF_CONDUCT ~~~ AGENTS["AGENTS.md"]
-            AGENTS ~~~ PR_TEMPLATE["PULL_REQUEST_TEMPLATE"]
-            PR_TEMPLATE ~~~ ISSUE_TEMPLATE["ISSUE_TEMPLATE/..."]
-        end
+           CONTRIBUTING["CONTRIBUTING.md"]
+           CONTRIBUTING ~~~ CODE_OF_CONDUCT["CODE_OF_CONDUCT.md"]
+           CODE_OF_CONDUCT ~~~ SECURITY["SECURITY.md"]
+           SECURITY ~~~ PR_TEMPLATE["PULL_REQUEST_TEMPLATE"]
+           PR_TEMPLATE ~~~ ISSUE_TEMPLATE["ISSUE_TEMPLATE/..."]
+       end
 
         subgraph ProjectA["📦 project-A"]
             direction LR
@@ -169,6 +169,21 @@ Please follow [Borda's general contributing guidelines](https://github.com/Borda
 
     conda install pytorch torchvision -c pytorch
 ```
+
+## 🧠 Understanding AGENTS.md
+
+The [`AGENTS.md`](AGENTS.md) file defines standards for AI coding assistants (GitHub Copilot, Claude, Cursor, etc.) working on Borda projects. It establishes:
+
+- **Agent roles** (SW Engineer, QA Specialist, Squeezer, Doc-Scribe, Mentor-Bot)
+- **Documentation protocol** (6-point structure for all public APIs)
+- **Testing standards** ("The Borda Standard" for rigorous testing)
+- **Security protocols** and **error handling** best practices
+
+> ⚠️ **Important:** Unlike other community health files (`CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, etc.), `AGENTS.md` is **not** automatically inherited by other repositories in the organization. According to [GitHub's documentation on community health files](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file#supported-file-types), only specific file types are supported for automatic inheritance. To use `AGENTS.md` in other projects, you must:
+>
+> 1. **Copy it to each repository** where you want AI agents to follow these standards, or
+> 2. **Reference it in your AI tool's custom instructions** (e.g., Cursor, Windsurf, GitHub Copilot Workspace)
+> 3. **Include it in your IDE/editor configuration** if your tool supports organization-wide settings
 
 ## 🛠️ Maintenance
 
