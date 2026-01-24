@@ -24,13 +24,12 @@ Managing community health files across multiple repositories can be tedious and 
 
 ## 📦 What's Included
 
-| File                                                   | Description                                      |
-| ------------------------------------------------------ | ------------------------------------------------ |
-| [`CONTRIBUTING.md`](CONTRIBUTING.md)                   | Guidelines for contributing to any Borda project |
-| [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md)             | Community standards and enforcement ladder       |
-| [`AGENTS.md`](AGENTS.md)                               | AI agent configuration and engineering standards |
-| [`PULL_REQUEST_TEMPLATE.md`](PULL_REQUEST_TEMPLATE.md) | Default PR template with checklist               |
-| [`ISSUE_TEMPLATE/...`](ISSUE_TEMPLATE/)                | Bug report and feature request templates         |
+| File                                                           | Description                                      |
+| -------------------------------------------------------------- | ------------------------------------------------ |
+| [`CONTRIBUTING.md`](.github/CONTRIBUTING.md)                   | Guidelines for contributing to any Borda project |
+| [`CODE_OF_CONDUCT.md`](.github/CODE_OF_CONDUCT.md)             | Community standards and enforcement ladder       |
+| [`PULL_REQUEST_TEMPLATE.md`](.github/PULL_REQUEST_TEMPLATE.md) | Default PR template with checklist               |
+| [`ISSUE_TEMPLATE/...`](.github/ISSUE_TEMPLATE/)                | Bug report and feature request templates         |
 
 ## 🔄 How GitHub Inheritance Works
 
@@ -169,17 +168,6 @@ Please follow [Borda's general contributing guidelines](https://github.com/Borda
 
     conda install pytorch torchvision -c pytorch
 ```
-
-## 🧠 Understanding AGENTS.md
-
-The [`AGENTS.md`](AGENTS.md) file defines standards for AI coding assistants (GitHub Copilot, Claude, Cursor, etc.) working on Borda projects. It establishes:
-
-- **Agent roles** (SW Engineer, QA Specialist, Squeezer, Doc-Scribe, Mentor-Bot)
-- **Documentation protocol** (6-point structure for all public APIs)
-- **Testing standards** ("The Borda Standard" for rigorous testing)
-- **Security protocols** and **error handling** best practices
-
-This ensures consistent AI-assisted development across all projects.
 
 ## 🛠️ Maintenance
 
