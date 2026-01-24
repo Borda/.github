@@ -12,6 +12,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+    - name: List files
+      run: ls -lh
     - name: Check Markdown links
       uses: tcort/github-action-markdown-link-check@v1
       with:
