@@ -24,13 +24,14 @@ Managing community health files across multiple repositories can be tedious and 
 
 ## 📦 What's Included
 
-| File                                                           | Description                                      |
-| -------------------------------------------------------------- | ------------------------------------------------ |
-| [`CONTRIBUTING.md`](.github/CONTRIBUTING.md)                   | Guidelines for contributing to any Borda project |
-| [`CODE_OF_CONDUCT.md`](.github/CODE_OF_CONDUCT.md)             | Community standards and enforcement ladder       |
-| [`SECURITY.md`](.github/SECURITY.md)                           | Security policy and vulnerability reporting      |
-| [`PULL_REQUEST_TEMPLATE.md`](.github/PULL_REQUEST_TEMPLATE.md) | Default PR template with checklist               |
-| [`ISSUE_TEMPLATE/...`](.github/ISSUE_TEMPLATE/)                | Bug report and feature request templates         |
+| File                                                           | Description                                         |
+| -------------------------------------------------------------- | --------------------------------------------------- |
+| [`CONTRIBUTING.md`](.github/CONTRIBUTING.md)                   | Guidelines for contributing to any Borda project    |
+| [`CODE_OF_CONDUCT.md`](.github/CODE_OF_CONDUCT.md)             | Community standards and enforcement ladder          |
+| [`SECURITY.md`](.github/SECURITY.md)                           | Security policy and vulnerability reporting         |
+| [`PULL_REQUEST_TEMPLATE.md`](.github/PULL_REQUEST_TEMPLATE.md) | Default PR template with checklist                  |
+| [`ISSUE_TEMPLATE/...`](.github/ISSUE_TEMPLATE/)                | Bug report and feature request templates            |
+| [`agents/...`](.github/agents/)                                | GitHub Copilot Custom Agents (`@sw-engineer`, etc.) |
 
 ## 🔄 How GitHub Inheritance Works
 
@@ -184,6 +185,30 @@ The [`AGENTS.md`](AGENTS.md) file defines standards for AI coding assistants (Gi
 > 1. **Copy it to each repository** where you want AI agents to follow these standards, or
 > 2. **Reference it in your AI tool's custom instructions** (e.g., Cursor, Windsurf, GitHub Copilot Workspace)
 > 3. **Include it in your IDE/editor configuration** if your tool supports organization-wide settings
+
+## 🤖 GitHub Copilot Custom Agents
+
+This organization provides **Custom Agents for GitHub Copilot** that can be invoked via `@` mentions in Copilot Chat. These agents are specialized AI assistants based on the roles defined in [`AGENTS.md`](AGENTS.md).
+
+| Agent             | Invoke           | Purpose                                                    |
+| ----------------- | ---------------- | ---------------------------------------------------------- |
+| **SW Engineer**   | `@sw-engineer`   | Architecture, TDD, SOLID principles, type-safe code        |
+| **QA Specialist** | `@qa-specialist` | Testing strategy, edge case hunting, can block merges      |
+| **Squeezer**      | `@squeezer`      | Performance optimization, profiling, resource efficiency   |
+| **Doc-Scribe**    | `@doc-scribe`    | Documentation, docstrings, living docs, can block releases |
+| **Mentor**        | `@mentor`        | Contributor onboarding, code review guidance, feedback     |
+
+### Quick Examples
+
+```
+@sw-engineer Review this function for SOLID violations
+@qa-specialist What edge cases should I test for this parser?
+@squeezer This query is slow — suggest optimizations
+@doc-scribe Write a docstring for this class following Borda standards
+@mentor Help me understand this PR feedback
+```
+
+> 📚 **For detailed usage, configuration, and the full agent specifications**, see [`.github/agents/README.md`](.github/agents/README.md).
 
 ## 🛠️ Maintenance
 

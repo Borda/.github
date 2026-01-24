@@ -4,13 +4,13 @@ This directory contains **GitHub Copilot Custom Agents** for the **Borda** organ
 
 ## 📋 Available Agents
 
-| Agent | Slug | Description | Merge Block |
-|-------|------|-------------|-------------|
-| [SW Engineer](sw-engineer.agent.md) | `@sw-engineer` | Core logic architect focused on TDD, SOLID principles, and maintainable code | ❌ |
-| [QA Specialist](qa-specialist.agent.md) | `@qa-specialist` | Testing strategist and edge case hunter ensuring code reliability | ✅ |
-| [Squeezer](squeezer.agent.md) | `@squeezer` | Performance optimizer focused on runtime efficiency and resource usage | ❌ |
-| [Doc-Scribe](doc-scribe.agent.md) | `@doc-scribe` | Documentation specialist ensuring comprehensive and up-to-date docs | ✅ (releases) |
-| [Mentor](mentor.agent.md) | `@mentor` | Contributor experience guide helping developers learn and succeed | ❌ |
+| Agent                                   | Slug             | Description                                                                  | Merge Block   |
+| --------------------------------------- | ---------------- | ---------------------------------------------------------------------------- | ------------- |
+| [SW Engineer](sw-engineer.agent.md)     | `@sw-engineer`   | Core logic architect focused on TDD, SOLID principles, and maintainable code | ❌            |
+| [QA Specialist](qa-specialist.agent.md) | `@qa-specialist` | Testing strategist and edge case hunter ensuring code reliability            | ✅            |
+| [Squeezer](squeezer.agent.md)           | `@squeezer`      | Performance optimizer focused on runtime efficiency and resource usage       | ❌            |
+| [Doc-Scribe](doc-scribe.agent.md)       | `@doc-scribe`    | Documentation specialist ensuring comprehensive and up-to-date docs          | ✅ (releases) |
+| [Mentor](mentor.agent.md)               | `@mentor`        | Contributor experience guide helping developers learn and succeed            | ❌            |
 
 ## 🚀 How It Works
 
@@ -28,19 +28,20 @@ In GitHub Copilot Chat (VS Code, GitHub.com, or CLI), type `@` followed by the a
 
 ### Agent Selection Guide
 
-| When you need... | Use |
-|------------------|-----|
-| Architecture decisions, code structure advice | `@sw-engineer` |
-| Test coverage, edge case identification | `@qa-specialist` |
-| Performance analysis, optimization tips | `@squeezer` |
-| API documentation, README updates | `@doc-scribe` |
-| Onboarding help, PR feedback summary | `@mentor` |
+| When you need...                              | Use              |
+| --------------------------------------------- | ---------------- |
+| Architecture decisions, code structure advice | `@sw-engineer`   |
+| Test coverage, edge case identification       | `@qa-specialist` |
+| Performance analysis, optimization tips       | `@squeezer`      |
+| API documentation, README updates             | `@doc-scribe`    |
+| Onboarding help, PR feedback summary          | `@mentor`        |
 
 ## 📁 File Structure
 
 Each agent is defined in its own `.agent.md` file with:
 
 1. **YAML Frontmatter** - Required metadata:
+
    ```yaml
    ---
    name: agent-slug
@@ -51,6 +52,7 @@ Each agent is defined in its own `.agent.md` file with:
    ```
 
 2. **Markdown Body** - Agent instructions including:
+
    - Identity and role description
    - Philosophy and goals
    - Guidelines and rules
@@ -121,10 +123,10 @@ These agents are derived from the organization's [AGENTS.md](../../AGENTS.md) st
 
 ## 📝 Changelog
 
-| Date | Change |
-|------|--------|
+| Date       | Change                                      |
+| ---------- | ------------------------------------------- |
 | 2026-01-24 | Initial creation of 5 agents from AGENTS.md |
 
----
+______________________________________________________________________
 
 *These agents follow the [Borda Organization Standards](../../AGENTS.md) defined in the root AGENTS.md file.*
