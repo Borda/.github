@@ -6,10 +6,12 @@ Thank you for helping keep Borda projects and their users safe! We take security
 
 Security updates are typically provided for the **latest stable release** of each project. Individual repositories may specify their own support policies if they differ from this default.
 
-| Version        | Supported       |
-| -------------- | --------------- |
-| Latest release | ✅ Yes          |
-| Older releases | ⚠️ Case by case |
+| Version                   | Supported       |
+| ------------------------- | --------------- |
+| Latest stable release     | ✅ Yes          |
+| Older releases            | ⚠️ Case by case |
+| Release candidates (RC)   | ❌ No           |
+| Development (dev/nightly) | ❌ No           |
 
 > 💡 **Tip:** Always use the latest version to benefit from security patches and improvements.
 
@@ -20,7 +22,7 @@ Security updates are typically provided for the **latest stable release** of eac
 Instead, report security vulnerabilities through one of these private channels:
 
 1. **GitHub Security Advisories** (preferred) — Use the "Report a vulnerability" button on the repository's Security tab
-2. **Private contact** — Email the project maintainer directly if their contact information is available
+2. **Private/Direct contact** — Email the project maintainer directly if their contact information is available
 
 ### What to Include
 
