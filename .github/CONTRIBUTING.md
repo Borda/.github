@@ -52,10 +52,9 @@ When reporting a bug, providing clear and detailed information helps us fix it f
 3. **Include environment details** – Tell us your operating system, relevant runtime or application version, and any other important tools or dependencies (for example, database, browser, CLI, or framework versions).
 4. **Describe expected vs actual behavior** – Be specific about what you expected to happen and what actually occurred.
 
-## 🛠️ Fixing Bugs
-
 <div id="fixing-bugs"></div>
 
+## 🛠️ Fixing Bugs
 Bug fixing is a great way to contribute! Here's how to get started:
 
 1. **Find a bug to fix** – Look for issues labeled `bug` or `help wanted` in the issue tracker.
