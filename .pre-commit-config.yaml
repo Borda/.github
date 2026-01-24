@@ -41,5 +41,6 @@ repos:
         args: ["--number"]
         additional_dependencies:
           - mdformat-gfm
-          - mdformat-black
-          - mdformat_frontmatter
+          - mdformat-ruff
+          - mdformat-frontmatter
+          - mdformat-config
