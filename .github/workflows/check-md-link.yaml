@@ -12,6 +12,24 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+    - name: Create local version of config
+      run: |
+        echo '{
+        "httpHeaders": [
+          {
+            "urls": ["https://github.com/", "https://guides.github.com/", "https://help.github.com/", "https://docs.github.com/"],
+            "headers": {
+              "Accept-Encoding": "zstd, br, gzip, deflate"
+            }
+          }
+        ]
+        "timeout": "10s",
+        "retryOn429": true,
+        "retryCount": 3,
+        "fallbackRetryDelay": "5s"
+        }' > 'markdown.links.config.json'
+        echo "CONFIG_FILE=markdown.links.config.json" >> $GITHUB_ENV
+        cat 'markdown.links.config.json'
     - name: List files
       run: ls -lh
     - name: Check Markdown links
@@ -19,3 +37,4 @@ jobs:
       with:
         use-quiet-mode: 'no'
         use-verbose-mode: 'yes'
+        config-file: ${{ env.CONFIG_FILE }}
