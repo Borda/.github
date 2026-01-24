@@ -39,13 +39,12 @@ GitHub automatically uses files from this `.github` repository as **fallback def
 ```mermaid
 flowchart TD
     subgraph BordaOrganization["🏢 Borda Organization"]
-        subgraph GithubRepo["📁 .github repo<br/>(this repository)"]
-            direction TB
+        subgraph GithubRepo[".github repo<br/>(this repository)"]
             CONTRIBUTING["CONTRIBUTING.md"]
-            CODE_OF_CONDUCT["CODE_OF_CONDUCT.md"]
-            AGENTS["AGENTS.md"]
-            PR_TEMPLATE["PULL_REQUEST_TEMPLATE"]
-            ISSUE_TEMPLATE["ISSUE_TEMPLATE/"]
+            CONTRIBUTING ~~~ CODE_OF_CONDUCT["CODE_OF_CONDUCT.md"]
+            CODE_OF_CONDUCT ~~~ AGENTS["AGENTS.md"]
+            AGENTS ~~~ PR_TEMPLATE["PULL_REQUEST_TEMPLATE"]
+            PR_TEMPLATE ~~~ ISSUE_TEMPLATE["ISSUE_TEMPLATE/"]
         end
 
         subgraph ProjectA["📦 project-A"]
@@ -256,4 +255,30 @@ Made with 💙 by the Borda et al.
 Made with 💙 by the Borda et al.
 
 </div>
+
+Made with 💙 by the Borda et al.
+
+</div>
+
+Made with 💙 by the Borda et al.
+
+</div>
+
+
+
+Made with 💙 by the Borda et al.
+
+</div>
+
+
+
+
+Made with 💙 by the Borda et al.
+
+</div>
+
+Made with 💙 by the Borda et al.
+
+</div>
+
 
