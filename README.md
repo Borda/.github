@@ -1,6 +1,7 @@
 # 🏠 Borda's Default GitHub Configuration
 
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/Borda/.github/main.svg)](https://results.pre-commit.ci/latest/github/Borda/.github/main)
+[![Check Markdown links](https://github.com/Borda/.github/actions/workflows/md-link-check.yaml/badge.svg?event=push)](https://github.com/Borda/.github/actions/workflows/md-link-check.yaml)
 
 > 💡 **One configuration to rule them all** — Shared defaults for all Borda repositories.
 
