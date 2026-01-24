@@ -256,29 +256,5 @@ Made with 💙 by the Borda et al.
 
 </div>
 
-Made with 💙 by the Borda et al.
-
-</div>
-
-Made with 💙 by the Borda et al.
-
-</div>
-
-
-
-Made with 💙 by the Borda et al.
-
-</div>
-
-
-
-
-Made with 💙 by the Borda et al.
-
-</div>
-
-Made with 💙 by the Borda et al.
-
-</div>
 
 
