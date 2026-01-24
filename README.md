@@ -48,18 +48,17 @@ flowchart TD
         end
 
         subgraph ProjectA["📦 project-A"]
-            direction TB
-            NoOverrides["No local overrides"]
-            UsesDefaults["✅ Uses defaults from<br/>.github repo"]
-            NoOverrides --> UsesDefaults
+            direction LR
+            A_Local["📁 Local:<br/>❌ None"]
+            A_Used["⚙️ Uses:<br/>✅ Defaults"]
+            A_Local ~~~ A_Used
         end
 
         subgraph ProjectB["📦 project-B"]
-            direction TB
-            HasLocal["Has local"]
-            LocalFile["CONTRIBUTING.md"]
-            LocalWins["🔧 Local file wins!<br/>(overrides default)"]
-            HasLocal --> LocalFile --> LocalWins
+            direction LR
+            B_Local["📁 Local:<br/>✅ CONTRIBUTING.md"]
+            B_Used["⚙️ Uses:<br/>🔧 Local"]
+            B_Local ~~~ B_Used
         end
 
         GithubRepo -->|"inherits defaults"| ProjectA
