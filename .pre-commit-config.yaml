@@ -35,11 +35,9 @@ repos:
         args: ["--write-changes"]
 
   - repo: https://github.com/lycheeverse/lychee
-    rev: v0.15.1
+    rev: lychee-v0.18.0
     hooks:
       - id: lychee
-        args: ["--no-progress", "."]
-        pass_filenames: false
 
   - repo: https://github.com/executablebooks/mdformat
     rev: 1.0.0
