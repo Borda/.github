@@ -36,32 +36,46 @@ Managing community health files across multiple repositories can be tedious and 
 
 GitHub automatically uses files from this `.github` repository as **fallback defaults** for any repository in the organization that doesn't have its own version. This is built into GitHub's [community health files](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file) feature.
 
-```
-┌──────────────────────────────────────────────────────────────────────────────────┐
-│                            Borda Organization                                    │
-│                                                                                  │
-│  ┌─────────────────────────┐                 ┌─────────────────────────┐         │
-│  │    .github repo         │                 │      project-A          │         │
-│  │    (this repository)    │                 │                         │         │
-│  │                         │                 │  No local overrides     │         │
-│  │  CONTRIBUTING.md        │───────────────► │                         │         │
-│  │  CODE_OF_CONDUCT.md     │                 │  Uses defaults from     │         │
-│  │  AGENTS.md              │                 │  .github repo           │         │
-│  │  PULL_REQUEST_TEMPLATE  │                 │                         │         │
-│  │  ISSUE_TEMPLATE/        │                 └─────────────────────────┘         │
-│  └─────────────────────────┘                                                     │
-│              │                                                                   │
-│              │                                                                   │
-│              │                               ┌─────────────────────────┐         │
-│              │                               │      project-B          │         │
-│              │                               │                         │         │
-│              │                               │  Has local              │         │
-│              └──────────────────────────────►│  CONTRIBUTING.md        │         │
-│                                              │                         │         │
-│                                              │  Local file wins!       │         │
-│                                              │  (overrides default)    │         │
-│                                              └─────────────────────────┘         │
-└──────────────────────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+    subgraph BordaOrganization["🏢 Borda Organization"]
+        subgraph GithubRepo["📁 .github repo<br/>(this repository)"]
+            direction TB
+            CONTRIBUTING["CONTRIBUTING.md"]
+            CODE_OF_CONDUCT["CODE_OF_CONDUCT.md"]
+            AGENTS["AGENTS.md"]
+            PR_TEMPLATE["PULL_REQUEST_TEMPLATE"]
+            ISSUE_TEMPLATE["ISSUE_TEMPLATE/"]
+        end
+
+        subgraph ProjectA["📦 project-A"]
+            direction TB
+            NoOverrides["No local overrides"]
+            UsesDefaults["✅ Uses defaults from<br/>.github repo"]
+            NoOverrides --> UsesDefaults
+        end
+
+        subgraph ProjectB["📦 project-B"]
+            direction TB
+            HasLocal["Has local"]
+            LocalFile["CONTRIBUTING.md"]
+            LocalWins["🔧 Local file wins!<br/>(overrides default)"]
+            HasLocal --> LocalFile --> LocalWins
+        end
+
+        GithubRepo -->|"inherits defaults"| ProjectA
+        GithubRepo -.->|"overridden locally"| ProjectB
+    end
+
+    classDef orgStyle fill:#f0f7ff,stroke:#1a73e8,stroke-width:2px
+    classDef repoStyle fill:#e8f5e9,stroke:#34a853,stroke-width:2px
+    classDef projectAStyle fill:#fff3e0,stroke:#fb8c00,stroke-width:1px
+    classDef projectBStyle fill:#fce4ec,stroke:#e91e63,stroke-width:1px
+
+    class BordaOrganization orgStyle
+    class GithubRepo repoStyle
+    class ProjectA projectAStyle
+    class ProjectB projectBStyle
 ```
 
 **Official Documentation:**
@@ -238,3 +252,8 @@ ______________________________________________________________________
 Made with 💙 by the Borda et al.
 
 </div>
+
+Made with 💙 by the Borda et al.
+
+</div>
+
