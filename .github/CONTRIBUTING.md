@@ -53,6 +53,7 @@ When reporting a bug, providing clear and detailed information helps us fix it f
 4. **Describe expected vs actual behavior** – Be specific about what you expected to happen and what actually occurred.
 
 ## 🛠️ Fixing Bugs
+
 <div id="fixing-bugs"></div>
 
 Bug fixing is a great way to contribute! Here's how to get started:
