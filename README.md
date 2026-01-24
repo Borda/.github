@@ -164,7 +164,7 @@ You don't need to duplicate everything. Reference the defaults and add only what
 ```markdown
 # Contributing to ML-Pipeline
 
-Please follow [Borda's general contributing guidelines](https://github.com/Borda/.github/blob/main/CONTRIBUTING.md).
+Please follow [Borda's general contributing guidelines](https://github.com/BoXXXXXXXXXrda/.github/blob/main/CONTRIBUTING.md).
 
 ## Additional Setup for This Project
 
@@ -226,7 +226,7 @@ This repository is open source and can serve as a template for your own organiza
 
 ```markdown
 <!-- In your CONTRIBUTING.md or README.md -->
-> This project's community health files were inspired by [Borda's defaults](https://github.com/BordXXXXXXXXXXa/.github).
+> This project's community health files were inspired by [Borda's defaults](https://github.com/Borda/.github).
 ```
 
 ## 🤝 Contributing to These Defaults
