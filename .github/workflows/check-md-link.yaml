@@ -19,7 +19,8 @@ jobs:
     - name: Link Checker
       uses: lycheeverse/lychee-action@v2
       with:
-        args: "--include-verbatim"
+        # default args: "--verbose --no-progress './**/*.md' './**/*.html' './**/*.rst'"
+        args: "--verbose --no-progress './**/*.md' --include-verbatim"
         fail: true
 
     - name: Check Markdown links
