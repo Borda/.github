@@ -1,8 +1,7 @@
 # 🏠 Borda's Default GitHub Configuration
 
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/Borda/.github/main.svg)](https://results.pre-commit.ci/latest/github/Borda/.github/main)
-[![Check Markdown links](https://github.com/Borda/.github/actions/workflows/md-link-check.yaml/badge.svg?event=push)](https://github.com/Borda/.github/actions/workflows/md-link-check.yaml)
-
+[![Check Markdown links](https://github.com/Borda/.github/actions/workflows/check-md-link.yaml/badge.svg?event=push)](https://github.com/Borda/.github/actions/workflows/check-md-link.yaml)
 > 💡 **One configuration to rule them all** — Shared defaults for all Borda repositories.
 
 This repository contains **organization-wide default configurations** for all Borda GitHub projects. These files are automatically inherited by any repository that doesn't define its own versions, reducing duplication and ensuring consistency across the organization.
@@ -164,7 +163,7 @@ You don't need to duplicate everything. Reference the defaults and add only what
 ```markdown
 # Contributing to ML-Pipeline
 
-Please follow [Borda's general contributing guidelines](https://github.com/Borda/.github/.github/blob/main/CONTRIBUTING.md).
+Please follow [Borda's general contributing guidelines](https://github.com/Borda/.github/blob/main/.github/CONTRIBUTING.md).
 
 ## Additional Setup for This Project
 
