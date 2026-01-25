@@ -27,10 +27,3 @@ jobs:
           --include-verbatim
           --exclude https://github.com/YOUR-USERNAME/REPO-NAME.git
         fail: true
-
-    - name: Check Markdown links
-      uses: tcort/github-action-markdown-link-check@v1
-      with:
-        use-quiet-mode: 'no'
-        use-verbose-mode: 'yes'
-        config-file: ${{ env.CONFIG_FILE }}
