@@ -140,7 +140,7 @@ Tests and quality improvements are **always welcome**! These contributions are h
 - Help catch future regressions – Tests prevent issues from reoccurring
 - Reduce maintainer burden – Comprehensive tests require less ongoing debugging
 
-For information about testing when fixing bugs, see the [Fixing Bugs](#%EF%B8%8F-fixing-bugs) section.
+For information about testing when fixing bugs, see the [Fixing Bugs](#-fixing-bugs) section.
 
 ## 💎 Quality Expectations
 
