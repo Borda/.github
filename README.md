@@ -2,6 +2,7 @@
 
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/Borda/.github/main.svg)](https://results.pre-commit.ci/latest/github/Borda/.github/main)
 [![Check Markdown links](https://github.com/Borda/.github/actions/workflows/check-md-link.yaml/badge.svg?event=push)](https://github.com/Borda/.github/actions/workflows/check-md-link.yaml)
+
 > 💡 **One configuration to rule them all** — Shared defaults for all Borda repositories.
 
 This repository contains **organization-wide default configurations** for all Borda GitHub projects. These files are automatically inherited by any repository that doesn't define its own versions, reducing duplication and ensuring consistency across the organization.
