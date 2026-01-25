@@ -164,7 +164,7 @@ You don't need to duplicate everything. Reference the defaults and add only what
 ```markdown
 # Contributing to ML-Pipeline
 
-Please follow [Borda's general contributing guidelines](https://githXXXXXXXXub.com/Borda/.github/blob/main/CONTRIBUTING.md).
+Please follow [Borda's general contributing guidelines](https://github.com/Borda/.github/blob/main/CONTRIBUTING.md).
 
 ## Additional Setup for This Project
 
