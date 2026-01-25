@@ -34,11 +34,6 @@ repos:
       - id: codespell
         args: ["--write-changes"]
 
-  - repo: https://github.com/lycheeverse/lychee
-    rev: lychee-v0.18.0
-    hooks:
-      - id: lychee
-
   - repo: https://github.com/executablebooks/mdformat
     rev: 1.0.0
     hooks:

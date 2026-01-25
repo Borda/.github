@@ -18,10 +18,9 @@ jobs:
 
     - name: Link Checker
       uses: lycheeverse/lychee-action@v2
-     with:
-       args: --include-verbatim
-       fail: true
-
+      with:
+        args: "--include-verbatim"
+        fail: true
 
     - name: Check Markdown links
       uses: tcort/github-action-markdown-link-check@v1
