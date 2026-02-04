@@ -1,8 +1,18 @@
+# 🚨 Priority Instruction (System-Level)
+
+When performing PR reviews, ALWAYS follow the structured format defined in this file.
+This instruction overrides all default Copilot review behavior.
+
+> [!IMPORTANT]
+> This file defines the required structure for all Copilot-generated PR reviews.
+
+______________________________________________________________________
+
 # GitHub Copilot PR Review Guidelines
 
 These guidelines ensure consistent, actionable, and maintainer-focused reviews for Borda Python projects.
 
----
+______________________________________________________________________
 
 ## 🎯 Review Objectives
 
@@ -15,7 +25,7 @@ Your primary goal is to help maintainers make informed merge decisions quickly b
 
 **Workflow:** Add detailed feedback as GitHub inline comments on specific code sections, then summarize in your review with permalinks to those comments.
 
----
+______________________________________________________________________
 
 ## 🟢 1. Overall Recommendation
 
@@ -29,11 +39,12 @@ Choose one and provide a **specific** justification:
 - 🔴 **Block** — Critical issues require major rework
 
 **Example:**
+
 ```
 🟠 Request Changes — Missing unit tests for new `DataProcessor` class and docstrings not following Google-style format. See inline comments for specific issues.
 ```
 
----
+______________________________________________________________________
 
 ## 📋 2. PR Completeness Check
 
@@ -57,13 +68,14 @@ Verify the PR meets project requirements. Mark each item:
 - [ ] **Screenshots/videos** — Included for visual changes (if applicable)
 
 **Call out missing items explicitly (with inline comments on relevant files):**
+
 ```
 ❌ Missing:
 - Documentation entry not added to project docs (see inline comment on docs/index.md)
 - No unit tests provided for `process_data()` function (see inline comment on src/processor.py)
 ```
 
----
+______________________________________________________________________
 
 ## 📊 3. Quality Assessment
 
@@ -87,18 +99,21 @@ Provide **specific** feedback using **GitHub inline comments** on the code. Use 
   - Incorrect assumptions
 
 **Example (as GitHub inline comment on the specific code):**
+
 ```python
 # This will fail when `data.values` is None
 values = data.values[valid_indices]  # Add None check
 ```
 
 - **Python Best Practices**
+
   - Non-idiomatic patterns
   - Improper exception handling
   - Inefficient implementations
   - Missing or incorrect type hints
 
 - **Project Conventions**
+
   - **Docstrings:** Must follow [Google-style](https://google.github.io/styleguide/pyguide.html#383-functions-and-methods)
   - **Code style:** Must pass linting (check project's pre-commit config or linting tools)
   - **Imports:** Standard library → third-party → local
@@ -126,6 +141,7 @@ Use **n/5** scoring for test coverage and quality:
 - [ ] Test names clearly describe what they validate
 
 **If tests are inadequate:**
+
 ```
 2/5 🟠 Insufficient Testing:
 - No test for `DataProcessor.process()` when input is empty
@@ -160,7 +176,7 @@ Use **n/5** scoring for documentation completeness:
 - [ ] Deprecated features marked with warnings
 - [ ] Migration guide for breaking changes
 
----
+______________________________________________________________________
 
 ## ⚠️ 4. Risk Assessment
 
@@ -175,35 +191,40 @@ Use **n/5** scoring for documentation completeness:
 ### Check for:
 
 - **Breaking Changes**
+
   - Changes to public APIs (function signatures, return types)
   - Removal of deprecated features
   - Changed behavior in existing functionality
   - **If breaking:** Must include migration instructions
 
 - **Performance Impact**
+
   - Inefficient algorithms (O(n²) where O(n) possible)
   - Memory-intensive operations on large arrays
   - Potential bottlenecks in hot paths
 
 - **Compatibility Issues**
+
   - New Python version requirements
   - New dependencies
   - Platform-specific code
 
 - **Security Concerns**
+
   - Unvalidated user input
   - Potential code execution risks
   - Sensitive data exposure
 
 **Example (link to GitHub inline comment):**
+
 ```
 4/5 🟠 Performance Risk:
-Nested loop over items × regions creates O(n×m) complexity. 
+Nested loop over items × regions creates O(n×m) complexity.
 For 1000 items × 100 regions = 100k iterations. Consider NumPy vectorization.
 See: [comment link]
 ```
 
----
+______________________________________________________________________
 
 ## 💡 5. Constructive Suggestions
 
@@ -222,23 +243,26 @@ Then reference these suggestions in your review summary with permalinks for easy
 ### Categories:
 
 - **Code Improvements**
+
   - Logic simplifications
   - Better error handling
   - More readable implementations
 
 - **Performance Optimizations**
+
   - NumPy vectorization opportunities
   - Caching expensive computations
   - Batch processing
 
 - **Architecture Improvements**
+
   - Code reuse opportunities
   - Better abstractions
   - More maintainable designs
 
 **Keep suggestions focused and implementable.**
 
----
+______________________________________________________________________
 
 ## 📊 6. Review Summary Template
 
@@ -275,11 +299,12 @@ Use this structure for your final review:
 2. [Another clear action item]
 ```
 
----
+______________________________________________________________________
 
 ## 🎯 Best Practices for Effective Reviews
 
 ### DO:
+
 - ✅ Use **n/5** scoring for quick assessment of quality dimensions
 - ✅ Use GitHub inline comments/suggestions directly on code instead of line numbers (they persist across edits)
 - ✅ Reference GitHub comment permalinks when summarizing issues in the review
@@ -290,13 +315,14 @@ Use this structure for your final review:
 - ✅ Run linter locally if needed (check project's pre-commit or linting tools)
 
 ### DON'T:
+
 - ❌ Give vague feedback like "improve code quality"
 - ❌ Nitpick on personal style preferences (defer to automated tools)
 - ❌ Assume the author knows project conventions
 - ❌ Focus only on what's wrong—recognize what's good
 - ❌ Let perfect be the enemy of good (minor issues shouldn't block useful PRs)
 
----
+______________________________________________________________________
 
 ## 📝 Tone and Communication
 
