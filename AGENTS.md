@@ -95,7 +95,7 @@ ______________________________________________________________________
 
 ## 6. Commit, Branch & Handoff Conventions
 
-- **Branch names**: `{type}/{issue-nb}-description` — types: `fix/`, `feat/`, `docs/`, `refactor/`, `test/`, `chore/`
+- **Branch names**: `{type}/{issue-number}-short-description` — types: `fix/`, `feat/`, `docs/`, `refactor/`, `test/`, `chore/`
 - **Commit prefix** by role when relevant: `[QA] Add edge case for parser`
 - **PR labels**: `needs-qa`, `needs-docs`, `needs-review`, `needs-perf`
 - **One PR = one logical change** — keep PRs small and focused
