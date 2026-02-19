@@ -4,13 +4,13 @@ Specialized AI assistants for the **Borda** organization, invoked via `@` mentio
 
 ## Available Agents
 
-| Agent                                   | Slug             | Tools                              | Description                                           |
-| --------------------------------------- | ---------------- | ---------------------------------- | ----------------------------------------------------- |
-| [SW Engineer](sw-engineer.agent.md)     | `@sw-engineer`   | read, edit, search, github         | Architecture, TDD, SOLID principles, code quality     |
-| [QA Specialist](qa-specialist.agent.md) | `@qa-specialist` | read, edit, search, execute, github| Testing strategy, edge cases, test authoring          |
-| [Squeezer](squeezer.agent.md)           | `@squeezer`      | read, search, execute, github      | Performance analysis and optimization with benchmarks |
-| [Doc-Scribe](doc-scribe.agent.md)       | `@doc-scribe`    | read, edit, search, github         | Documentation authoring and synchronization           |
-| [Mentor](mentor.agent.md)              | `@mentor`        | read, edit, search, github         | Contributor experience, PR feedback, agent routing    |
+| Agent                                   | Slug             | Tools                               | Description                                           |
+| --------------------------------------- | ---------------- | ----------------------------------- | ----------------------------------------------------- |
+| [SW Engineer](sw-engineer.agent.md)     | `@sw-engineer`   | read, edit, search, github          | Architecture, TDD, SOLID principles, code quality     |
+| [QA Specialist](qa-specialist.agent.md) | `@qa-specialist` | read, edit, search, execute, github | Testing strategy, edge cases, test authoring          |
+| [Squeezer](squeezer.agent.md)           | `@squeezer`      | read, search, execute, github       | Performance analysis and optimization with benchmarks |
+| [Doc-Scribe](doc-scribe.agent.md)       | `@doc-scribe`    | read, edit, search, github          | Documentation authoring and synchronization           |
+| [Mentor](mentor.agent.md)               | `@mentor`        | read, edit, search, github          | Contributor experience, PR feedback, agent routing    |
 
 ## How to Invoke
 
@@ -28,13 +28,13 @@ In GitHub Copilot Chat (VS Code, GitHub.com, JetBrains, CLI):
 
 ## Agent Selection
 
-| When you need...                              | Use              |
-| --------------------------------------------- | ---------------- |
-| Architecture decisions, code structure        | `@sw-engineer`   |
-| Test coverage, edge case identification       | `@qa-specialist` |
-| Performance analysis, optimization            | `@squeezer`      |
-| API docs, README updates, docstrings          | `@doc-scribe`    |
-| Onboarding, PR feedback, routing to a specialist | `@mentor`    |
+| When you need...                                 | Use              |
+| ------------------------------------------------ | ---------------- |
+| Architecture decisions, code structure           | `@sw-engineer`   |
+| Test coverage, edge case identification          | `@qa-specialist` |
+| Performance analysis, optimization               | `@squeezer`      |
+| API docs, README updates, docstrings             | `@doc-scribe`    |
+| Onboarding, PR feedback, routing to a specialist | `@mentor`        |
 
 ## File Structure
 
@@ -73,16 +73,16 @@ Defines agent behavior: identity, philosophy, responsibilities, context discover
 
 These are **Copilot Chat assistants** — they respond to questions, use tools, and produce output. They are not autonomous agents with access control privileges.
 
-| Capability                                    | Supported |
-| --------------------------------------------- | --------- |
-| Read files and search code                    | ✅        |
-| Write/edit files (`edit` tool)                | ✅        |
-| Run shell commands (`execute` tool)           | ✅ (VS Code / coding agent context) |
-| Query GitHub API (issues, PRs, code)          | ✅        |
-| Route to other agents (`handoffs`)            | ✅ (configured in `mentor`) |
-| Approve pull requests                         | ❌        |
-| Merge or block pull requests                  | ❌        |
-| Push to protected branches                    | ❌        |
+| Capability                           | Supported                           |
+| ------------------------------------ | ----------------------------------- |
+| Read files and search code           | ✅                                  |
+| Write/edit files (`edit` tool)       | ✅                                  |
+| Run shell commands (`execute` tool)  | ✅ (VS Code / coding agent context) |
+| Query GitHub API (issues, PRs, code) | ✅                                  |
+| Route to other agents (`handoffs`)   | ✅ (configured in `mentor`)         |
+| Approve pull requests                | ❌                                  |
+| Merge or block pull requests         | ❌                                  |
+| Push to protected branches           | ❌                                  |
 
 > Merge control and branch protection are configured via [GitHub rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets), not agent files.
 
@@ -97,12 +97,12 @@ These are **Copilot Chat assistants** — they respond to questions, use tools, 
 
 ## Troubleshooting
 
-| Symptom                        | Fix                                                          |
-| ------------------------------ | ------------------------------------------------------------ |
-| Agent not in dropdown          | Verify file is in `.github/agents/`, frontmatter is valid, wait 2 min |
-| Agent ignores tool              | Check `tools:` list includes the tool you need              |
-| Handoffs not appearing         | Verify `agents:` and `handoffs:` frontmatter in the source agent |
-| Agent responds generically     | Add project-specific conventions to the agent body           |
+| Symptom                    | Fix                                                                   |
+| -------------------------- | --------------------------------------------------------------------- |
+| Agent not in dropdown      | Verify file is in `.github/agents/`, frontmatter is valid, wait 2 min |
+| Agent ignores tool         | Check `tools:` list includes the tool you need                        |
+| Handoffs not appearing     | Verify `agents:` and `handoffs:` frontmatter in the source agent      |
+| Agent responds generically | Add project-specific conventions to the agent body                    |
 
 ## Official References
 
@@ -116,10 +116,10 @@ These are **Copilot Chat assistants** — they respond to questions, use tools, 
 
 Entries added on merge to `main`. In-progress changes accumulate on the branch.
 
-| Date       | Change                                          |
-| ---------- | ----------------------------------------------- |
-| 2026-01-24 | Initial creation of 5 agents from AGENTS.md     |
+| Date       | Change                                      |
+| ---------- | ------------------------------------------- |
+| 2026-01-24 | Initial creation of 5 agents from AGENTS.md |
 
----
+______________________________________________________________________
 
 *These agents follow [Borda Organization Standards](../../AGENTS.md).*

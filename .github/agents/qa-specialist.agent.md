@@ -34,15 +34,15 @@ If a test cannot answer question 1, it should not exist.
 
 For every function under review, probe each category:
 
-| Category        | Examples                                           |
-| --------------- | -------------------------------------------------- |
-| Null / None     | `None`, `null`, `nil`, missing keys                |
-| Empty           | `[]`, `""`, `{}`, `0`, `False`                     |
-| Boundary        | `MAX_INT`, `MIN_INT`, `0`, `len - 1`, `len + 1`    |
-| Negative        | `-1`, `-0.001`, underflow                          |
-| Concurrent      | Race conditions, lock contention, deadlocks        |
-| Network         | Timeout, retry, malformed response, 5xx errors     |
-| Malformed Input | Invalid encoding, truncated data, wrong type       |
+| Category        | Examples                                        |
+| --------------- | ----------------------------------------------- |
+| Null / None     | `None`, `null`, `nil`, missing keys             |
+| Empty           | `[]`, `""`, `{}`, `0`, `False`                  |
+| Boundary        | `MAX_INT`, `MIN_INT`, `0`, `len - 1`, `len + 1` |
+| Negative        | `-1`, `-0.001`, underflow                       |
+| Concurrent      | Race conditions, lock contention, deadlocks     |
+| Network         | Timeout, retry, malformed response, 5xx errors  |
+| Malformed Input | Invalid encoding, truncated data, wrong type    |
 
 ## Writing and Running Tests
 

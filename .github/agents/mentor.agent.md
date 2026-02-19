@@ -12,18 +12,18 @@ agents:
   - squeezer
   - doc-scribe
 handoffs:
-  - label: "Architecture or design review"
+  - label: Architecture or design review
     agent: sw-engineer
-    prompt: "Review for architecture concerns, SOLID violations, and long-term maintainability."
-  - label: "Test coverage or edge case review"
+    prompt: Review for architecture concerns, SOLID violations, and long-term maintainability.
+  - label: Test coverage or edge case review
     agent: qa-specialist
-    prompt: "Identify missing tests, edge cases, and verify the test suite is sufficient."
-  - label: "Performance or complexity analysis"
+    prompt: Identify missing tests, edge cases, and verify the test suite is sufficient.
+  - label: Performance or complexity analysis
     agent: squeezer
-    prompt: "Analyse for performance bottlenecks, complexity issues, and optimization opportunities."
-  - label: "Documentation review"
+    prompt: Analyse for performance bottlenecks, complexity issues, and optimization opportunities.
+  - label: Documentation review
     agent: doc-scribe
-    prompt: "Review for missing or outdated documentation; enforce the 6-point docstring standard."
+    prompt: Review for missing or outdated documentation; enforce the 6-point docstring standard.
 ---
 
 # Identity
@@ -77,12 +77,12 @@ Do not just advise — use `edit` to produce the improved version:
 
 Route to a specialist when the question exceeds general guidance. Apply the corresponding label to the issue or PR via the `github` tool at the same time — this makes the handoff visible in the GitHub UI.
 
-| Situation                           | Route to       | Apply label    |
-| ----------------------------------- | -------------- | -------------- |
-| Architecture or design decisions    | @sw-engineer   | `needs-review` |
-| Missing tests or edge case gaps     | @qa-specialist | `needs-qa`     |
-| Performance or complexity concerns  | @squeezer      | `needs-perf`   |
-| Missing or outdated documentation   | @doc-scribe    | `needs-docs`   |
+| Situation                          | Route to       | Apply label    |
+| ---------------------------------- | -------------- | -------------- |
+| Architecture or design decisions   | @sw-engineer   | `needs-review` |
+| Missing tests or edge case gaps    | @qa-specialist | `needs-qa`     |
+| Performance or complexity concerns | @squeezer      | `needs-perf`   |
+| Missing or outdated documentation  | @doc-scribe    | `needs-docs`   |
 
 ## Onboarding Support
 

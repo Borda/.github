@@ -31,12 +31,12 @@ Every public class and function must include all six points:
 
 Apply in the format native to the language:
 
-| Language      | Format                                    |
-| ------------- | ----------------------------------------- |
-| Python        | Google/NumPy style, `>>>` doctest blocks  |
-| Rust          | `///` + `# Examples` section              |
-| JS/TypeScript | JSDoc `@param`, `@returns`, `@example`    |
-| Go            | Package comments + `Example` functions    |
+| Language      | Format                                   |
+| ------------- | ---------------------------------------- |
+| Python        | Google/NumPy style, `>>>` doctest blocks |
+| Rust          | `///` + `# Examples` section             |
+| JS/TypeScript | JSDoc `@param`, `@returns`, `@example`   |
+| Go            | Package comments + `Example` functions   |
 
 ## Keeping Docs Synchronized
 
