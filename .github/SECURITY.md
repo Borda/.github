@@ -13,7 +13,8 @@ Security updates are typically provided for the **latest stable release** of eac
 | Release candidates (RC)   | ❌ No           |
 | Development (dev/nightly) | ❌ No           |
 
-> 💡 **Tip:** Always use the latest version to benefit from security patches and improvements.
+> [!TIP]
+> Always use the latest version to benefit from security patches and improvements.
 
 ## 🛡️ Reporting a Vulnerability
 
@@ -45,7 +46,8 @@ After you submit a report:
 | Ongoing   | Updates on fix progress                               |
 | Upon fix  | Credit in release notes (unless you prefer anonymity) |
 
-> 🙏 We appreciate your patience. Open source maintainers often work on projects in their spare time.
+> [!NOTE]
+> We appreciate your patience. Open source maintainers often work on projects in their spare time.
 
 ## 🔒 Security Best Practices
 

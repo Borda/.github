@@ -28,6 +28,14 @@ repos:
         args: ["--maxkb=100", "--enforce-all"]
       - id: detect-private-key
 
+  - repo: https://github.com/JoC0de/pre-commit-prettier
+    rev: v3.8.1 # using tag; previously pinned SHA when tags were not persistent
+    hooks:
+      - id: prettier
+        files: \.(html|yml|yaml|toml)
+        # https://prettier.io/docs/en/options.html#print-width
+        args: ["--print-width=120"]
+
   - repo: https://github.com/codespell-project/codespell
     rev: v2.4.1
     hooks:
@@ -41,5 +49,6 @@ repos:
         args: ["--number"]
         additional_dependencies:
           - mdformat-gfm
-          - mdformat-black
-          - mdformat_frontmatter
+          - mdformat-ruff
+          - mdformat-frontmatter
+          - mdformat-config

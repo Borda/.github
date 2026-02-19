@@ -2,7 +2,11 @@
 
 Thank you for your interest in contributing! We appreciate all contributions and welcome everyone, regardless of experience level. Your help makes this project better for everyone.
 
-> 💡 **First time contributing to open source?** Check out [First Contributions](https://github.com/firstcontributions/first-contributions) for a beginner-friendly guide that walks you through the entire process.
+> [!TIP]
+> **First time contributing to open source?** Check out [First Contributions](https://github.com/firstcontributions/first-contributions) for a beginner-friendly guide that walks you through the entire process.
+
+> [!NOTE]
+> **Configuration files are the source of truth.** If this documentation ever contradicts `pyproject.toml`, `.pre-commit-config.yaml`, or other config files, trust the config. Please open an issue so the docs can be corrected.
 
 ## 📜 Code of Conduct
 
@@ -41,7 +45,8 @@ Don't hesitate to ask! Open an issue or use discussions to:
 - Understand implementation details – Get help with specific technical questions
 - Get guidance on where to contribute – Find areas where your skills and interests can make the biggest impact
 
-> 🙋 Asking questions shows you're thoughtful and helps everyone learn together.
+> [!NOTE]
+> Asking questions shows you're thoughtful and helps everyone learn together.
 
 ## 🐛 Reporting Bugs
 
@@ -64,7 +69,8 @@ Bug fixing is a great way to contribute! Here's how to get started:
 4. **Test your fix** – Write or update tests to verify your fix works and prevents the bug from recurring.
 5. **Submit a PR** – Create a pull request with your fix, linking to the issue it addresses.
 
-> 🚀 **Pro tip:** Fixes with tests are more likely to be merged quickly!
+> [!TIP]
+> Fixes with tests are more likely to be merged quickly!
 
 ## 💡 Suggesting Improvements
 
@@ -95,7 +101,8 @@ Here's how to suggest and implement improvements:
 3. **Discuss and refine** – Engage in the issue discussion to clarify requirements and explore alternatives.
 4. **Get consensus** – Ensure there's general agreement from the community before starting implementation.
 
-> ⚠️ **Critical:** Always get maintainer approval before implementing new features! This ensures your work aligns with project direction and won't be wasted effort. Features implemented without prior approval may be rejected.
+> [!CAUTION]
+> Always get maintainer approval before implementing new features! This ensures your work aligns with project direction and won't be wasted effort. Features implemented without prior approval may be rejected.
 
 **When you have approval:**
 
@@ -132,6 +139,84 @@ If no issue exists, open one first to discuss the change before implementing it.
 - **Smaller PRs are easier to review** – Large PRs can be overwhelming and take longer to merge
 - **Split large changes into multiple PRs** – Break complex features into smaller, manageable pieces
 
+### Reviewing PRs
+
+When reviewing a pull request, follow this structured format to give consistent, actionable feedback.
+
+**Overall recommendation** — open with one of:
+
+- 🟢 **Approve** — Ready to merge as-is
+- 🟡 **Minor Suggestions** — Non-blocking improvements recommended
+- 🟠 **Request Changes** — Issues must be addressed before merge
+- 🔴 **Block** — Critical problems require major rework
+
+Include a one-sentence justification. Example: `🟠 Request Changes — Missing tests for error path and docstring not in Google style.`
+
+**Completeness checklist** — mark each: ✅ Complete / ⚠️ Incomplete / ❌ Missing / 🔵 N/A
+
+- [ ] Clear description of what changed and why
+- [ ] Linked to a related issue (`Fixes #NNN` or `Relates to #NNN`)
+- [ ] Tests added/updated (happy path, failure path, edge cases)
+- [ ] Google-style docstrings for all new/changed public APIs
+- [ ] No secrets or credentials introduced
+- [ ] Linting and CI checks pass
+
+**Quality scoring (n/5)** across three dimensions:
+
+| Score  | Meaning                                      |
+| :----- | :------------------------------------------- |
+| 5/5 🟢 | Excellent — no issues                        |
+| 4/5 🟢 | Good — minor improvements possible           |
+| 3/5 🟡 | Adequate — some gaps to address              |
+| 2/5 🟠 | Needs Work — multiple problems               |
+| 1/5 🔴 | Poor / Missing — significant rework required |
+
+Score **Code Quality** (correctness, type hints, idioms), **Testing** (coverage, edge cases, assertion specificity), and **Documentation** (docstrings, examples, changelog).
+
+**Risk assessment** — flag explicitly with severity (1–5):
+
+- **Breaking changes** — API signature changes, removed features; must include migration notes
+- **Performance** — O(n²) loops, memory-heavy operations on large arrays
+- **Security** — unvalidated input, credential exposure
+- **Compatibility** — new Python version requirements, new heavy dependencies
+
+**Review summary template:**
+
+```
+## Review Summary
+
+### Recommendation
+[emoji] [Status] — [One-sentence justification]
+
+### Completeness
+- ✅ [items complete]
+- ❌ [items missing]
+
+### Quality Scores
+- Code: n/5 [emoji] — [reason]
+- Testing: n/5 [emoji] — [reason]
+- Documentation: n/5 [emoji] — [reason]
+
+### Risk: n/5 [emoji] — [brief description]
+
+### Must Fix
+1. [Specific issue — link to inline comment]
+
+### Suggestions (non-blocking)
+1. [Optional improvement — link to inline suggestion]
+
+### Next Steps
+1. [Clear action item for the author]
+```
+
+**Best practices:**
+
+- Use GitHub inline comments and `suggestion` blocks on the code itself; reference their permalinks in the summary.
+- Explain *why* something is a problem, not just *what* is wrong.
+- Distinguish blocking issues from nice-to-haves.
+- Acknowledge good work — don't only list problems.
+- Defer style nitpicks to automated tools (`ruff`, `pre-commit`); don't block PRs on what linters can auto-fix.
+
 ## ✅ Tests and Quality Assurance
 
 Tests and quality improvements are **always welcome**! These contributions are highly valuable because they:
@@ -140,11 +225,109 @@ Tests and quality improvements are **always welcome**! These contributions are h
 - Help catch future regressions – Tests prevent issues from reoccurring
 - Reduce maintainer burden – Comprehensive tests require less ongoing debugging
 
-For information about testing when fixing bugs, see the [Fixing Bugs](#%EF%B8%8F-fixing-bugs) section.
+For information about testing when fixing bugs, see the [Fixing Bugs](#-fixing-bugs) section.
+
+## 🐍 Development Standards
+
+This section defines the technical baseline for Python projects in this organization. A specific project's `CONTRIBUTING.md` may extend or override these defaults.
+
+### Code Style
+
+- **Type hints** — All new functions and methods must include type annotations.
+- **Linting** — Code must pass `ruff` checks. Run `pre-commit run --all-files` before committing.
+- **Naming** — Follow PEP 8: `snake_case` for functions/variables, `PascalCase` for classes.
+- **Imports** — Order: standard library → third-party → local (enforced by `ruff --select I`).
+- **Clarity over cleverness** — Write code that is easy to read and debug, even if slightly more verbose.
+
+### Documentation
+
+Every public class and function must include a docstring following [Google style](https://google.github.io/styleguide/pyguide.html#383-functions-and-methods) with these sections:
+
+1. **Summary** — One-line description of what it does.
+2. **Args** — Parameters with types and descriptions.
+3. **Returns** — Return value and type.
+4. **Raises** — Exceptions that may be raised.
+5. **Examples** — Executable `>>>` doctests demonstrating usage.
+
+```python
+def filter_values(data: list[float], threshold: float = 0.5) -> list[float]:
+    """Filter values above a threshold.
+
+    Args:
+        data: Input values to filter.
+        threshold: Minimum value to retain. Must be non-negative.
+
+    Returns:
+        List of values strictly above the threshold.
+
+    Raises:
+        ValueError: If threshold is negative.
+
+    Examples:
+        >>> filter_values([0.1, 0.6, 0.9], threshold=0.5)
+        [0.6, 0.9]
+        >>> filter_values([])
+        []
+    """
+```
+
+### Testing
+
+- **Test-driven** — Write a failing test before fixing a bug or implementing a feature.
+- **Doctests** — Executable `>>>` examples in docstrings serve as first-line unit tests.
+- **Edge cases** — Always cover: `None`, empty inputs (`[]`, `""`), zero/negative values, and boundary conditions.
+- **Specific assertions** — Tests must catch plausible-but-wrong outputs; "no exception raised" is insufficient.
+
+> [!TIP]
+> When reviewing a test, ask: "If this function returned a wrong but plausible value, would this test catch it?" If not, improve the assertion.
+
+### Error Handling
+
+- **Fail fast** — Raise exceptions early; never return magic error codes.
+- **Contextual messages** — Include relevant state in error messages (e.g., input values, expected vs. actual).
+- **No silent failures** — Every caught exception must be logged or re-raised.
+- **Custom exceptions** — Use domain-specific exception classes where it aids clarity.
+
+### Security
+
+- Never commit `.env` files, API keys, or credentials — use environment variables or secret managers.
+- Validate and sanitize all external input (CLI args, file uploads, API responses).
+- Prefer `ruff --select S` for Python security linting in CI.
+- Follow the principle of least privilege: request only the access your code actually needs.
+
+### ML / AI Research Specifics
+
+- **Reproducibility** — Use fixed random seeds; pin dataset versions and model configs.
+- **Data validation** — Assert tensor shapes, dtypes, and value ranges before processing.
+- **Lazy loading** — Prefer deferred imports and on-demand computation for large models/datasets.
+- **Experiment logging** — Track hyperparameters, metrics, and environment details for every run.
+
+### Code Markers (TODO / FIXME)
+
+Leave structured comments so that intent and status are visible in the code itself — the next contributor or agent can determine what still needs doing without reading conversation history.
+
+| Marker       | Meaning                                                                                             |
+| :----------- | :-------------------------------------------------------------------------------------------------- |
+| `TODO(wip):` | Work is **incomplete** — must be continued before this can be considered done.                      |
+| `TODO:`      | Work is done, but a worthwhile follow-up was spotted — scoped observation, not blocking.            |
+| `FIXME:`     | Work is done, but there is a suspected related issue with high confidence — deserves a closer look. |
+
+```python
+# TODO(wip): implement retry logic — stub written, needs exponential backoff
+# TODO: consider LRU cache here once usage patterns are clearer
+# FIXME: assumes sorted input — verify upstream always guarantees order
+```
+
+**Rules:**
+
+- Remove `TODO(wip):` in the **same commit** when the referenced work is complete — never leave it dangling.
+- `TODO:` and `FIXME:` may persist until addressed in a follow-up issue or PR; open an issue if the concern is significant.
+- All three are greppable: `grep -r "TODO\|FIXME" .`
 
 ## 💎 Quality Expectations
 
-> 🙌 **Always do your best – that's the essential spirit of OSS contributions.**
+> [!IMPORTANT]
+> **Always do your best – that's the essential spirit of OSS contributions.**
 
 We value all levels of contribution and want to encourage everyone, regardless of skill level or time available. What matters is being reasonable and meaningful about what you can deliver:
 
@@ -154,6 +337,26 @@ We value all levels of contribution and want to encourage everyone, regardless o
 - **Be meaningful and reasonable** – Contribute what you can realistically complete. Even small improvements make a difference.
 
 We don't expect perfection. We expect genuine effort. If you're unsure about something, ask! The community is here to help.
+
+## 🌿 Branch Naming Convention
+
+Follow this pattern to keep the repository organized:
+
+```
+{type}/{issue-number}-short-description
+```
+
+| Type        | Use for                                            |
+| :---------- | :------------------------------------------------- |
+| `fix/`      | Bug fixes — e.g., `fix/123-warning-crash`          |
+| `feat/`     | New features — e.g., `feat/45-class-deprecation`   |
+| `docs/`     | Documentation changes — e.g., `docs/update-readme` |
+| `refactor/` | Code restructuring without behavior change         |
+| `test/`     | Test additions or improvements                     |
+| `chore/`    | Maintenance tasks — dependency updates, CI tweaks  |
+
+> [!TIP]
+> Always include the issue number when one exists. Without an issue, use a descriptive name: `fix/typo-in-readme`.
 
 ## 🚀 Quick Start
 
