@@ -1,149 +1,125 @@
 # GitHub Copilot Custom Agents
 
-This directory contains **GitHub Copilot Custom Agents** for the **Borda** organization. These agents provide specialized AI assistants that can be invoked via `@` mentions in GitHub Copilot Chat.
+Specialized AI assistants for the **Borda** organization, invoked via `@` mentions in GitHub Copilot Chat.
 
-## 📋 Available Agents
+## Available Agents
 
-| Agent                                   | Slug             | Description                                                                  |
-| --------------------------------------- | ---------------- | ---------------------------------------------------------------------------- |
-| [SW Engineer](sw-engineer.agent.md)     | `@sw-engineer`   | Core logic architect focused on TDD, SOLID principles, and maintainable code |
-| [QA Specialist](qa-specialist.agent.md) | `@qa-specialist` | Testing strategist and edge case hunter ensuring code reliability            |
-| [Squeezer](squeezer.agent.md)           | `@squeezer`      | Performance optimizer focused on runtime efficiency and resource usage       |
-| [Doc-Scribe](doc-scribe.agent.md)       | `@doc-scribe`    | Documentation specialist ensuring comprehensive and up-to-date docs          |
-| [Mentor](mentor.agent.md)               | `@mentor`        | Contributor experience guide helping developers learn and succeed            |
+| Agent                                   | Slug             | Tools                              | Description                                           |
+| --------------------------------------- | ---------------- | ---------------------------------- | ----------------------------------------------------- |
+| [SW Engineer](sw-engineer.agent.md)     | `@sw-engineer`   | read, edit, search, github         | Architecture, TDD, SOLID principles, code quality     |
+| [QA Specialist](qa-specialist.agent.md) | `@qa-specialist` | read, edit, search, execute, github| Testing strategy, edge cases, test authoring          |
+| [Squeezer](squeezer.agent.md)           | `@squeezer`      | read, search, execute, github      | Performance analysis and optimization with benchmarks |
+| [Doc-Scribe](doc-scribe.agent.md)       | `@doc-scribe`    | read, edit, search, github         | Documentation authoring and synchronization           |
+| [Mentor](mentor.agent.md)              | `@mentor`        | read, edit, search, github         | Contributor experience, PR feedback, agent routing    |
 
-## 🚀 How It Works
+## How to Invoke
 
-### Invoking an Agent
-
-In GitHub Copilot Chat (VS Code, GitHub.com, or CLI), type `@` followed by the agent name:
+In GitHub Copilot Chat (VS Code, GitHub.com, JetBrains, CLI):
 
 ```
 @sw-engineer Review this function for SOLID principle violations
 @qa-specialist What edge cases should I test for this parser?
-@squeezer How can I optimize this database query?
-@doc-scribe Help me write documentation for this API endpoint
+@squeezer Profile and identify the bottleneck in this query loop
+@doc-scribe Write a 6-point docstring for this function
 @mentor I'm new to this project, where should I start?
 ```
 
-### Agent Selection Guide
+`@mentor` can also route you directly to specialist agents via its configured handoffs.
+
+## Agent Selection
 
 | When you need...                              | Use              |
 | --------------------------------------------- | ---------------- |
-| Architecture decisions, code structure advice | `@sw-engineer`   |
+| Architecture decisions, code structure        | `@sw-engineer`   |
 | Test coverage, edge case identification       | `@qa-specialist` |
-| Performance analysis, optimization tips       | `@squeezer`      |
-| API documentation, README updates             | `@doc-scribe`    |
-| Onboarding help, PR feedback summary          | `@mentor`        |
+| Performance analysis, optimization            | `@squeezer`      |
+| API docs, README updates, docstrings          | `@doc-scribe`    |
+| Onboarding, PR feedback, routing to a specialist | `@mentor`    |
 
-## 📁 File Structure
+## File Structure
 
-Each agent is defined in its own `.agent.md` file with:
+Each agent is a `.agent.md` file with YAML frontmatter and a markdown body (max 30,000 chars).
 
-1. **YAML Frontmatter** - Required metadata:
+### Frontmatter Schema
 
-   ```yaml
-   ---
-   name: agent-slug           # optional; defaults to filename slug
-   description: Short description for the Copilot dropdown  # required
-   tools:                     # omit to enable all tools
-     - read                   # read file contents
-     - edit                   # write/edit files
-     - search                 # grep/glob code search
-     - github                 # GitHub MCP server (issues, PRs, code)
-   ---
-   ```
+```yaml
+---
+name: agent-slug              # optional; defaults to filename slug
+description: "..."            # required — shown in Copilot dropdown
+tools:                        # omit to enable all tools
+  - read                      # read file contents
+  - edit                      # write/edit files
+  - search                    # grep/glob code search
+  - execute                   # run shell commands (VS Code / coding agent)
+  - github                    # GitHub MCP server (issues, PRs, code)
+agents:                       # agents this agent can invoke
+  - other-agent-slug
+handoffs:                     # guided transitions to other agents
+  - label: "Label shown to user"
+    agent: target-agent-slug
+    prompt: "Prompt sent to the target agent"
+target: vscode                # optional: restrict to "vscode" or "github-copilot"
+infer: true                   # optional: allow automatic agent selection (default true)
+---
+```
 
-   Other supported frontmatter fields: `target`, `infer`, `model`, `argument-hint`, `user-invokable`, `agents`, `handoffs`, `mcp-servers`, `metadata`.
+Other supported fields: `model`, `argument-hint`, `user-invokable`, `mcp-servers`, `metadata`.
 
-2. **Markdown Body** - Agent instructions including:
+### Markdown Body
 
-   - Identity and role description
-   - Philosophy and goals
-   - Guidelines and rules
-   - Capabilities (what the agent can and cannot do)
-   - Tone guidelines
-   - AI constraints
+Defines agent behavior: identity, philosophy, responsibilities, context discovery rules, and constraints.
 
-## 🔧 Adding or Modifying Agents
+## What Agents Can and Cannot Do
 
-### Create a New Agent
+These are **Copilot Chat assistants** — they respond to questions, use tools, and produce output. They are not autonomous agents with access control privileges.
 
-1. Create a new file: `.github/agents/[slug].agent.md`
-2. Add the YAML frontmatter with at least `description` and `tools`
-3. Write the agent instructions in markdown (max 30,000 characters)
-4. Commit to `main` branch
-5. Wait 1-2 minutes for GitHub to process
+| Capability                                    | Supported |
+| --------------------------------------------- | --------- |
+| Read files and search code                    | ✅        |
+| Write/edit files (`edit` tool)                | ✅        |
+| Run shell commands (`execute` tool)           | ✅ (VS Code / coding agent context) |
+| Query GitHub API (issues, PRs, code)          | ✅        |
+| Route to other agents (`handoffs`)            | ✅ (configured in `mentor`) |
+| Approve pull requests                         | ❌        |
+| Merge or block pull requests                  | ❌        |
+| Push to protected branches                    | ❌        |
 
-### File Naming Convention
+> Merge control and branch protection are configured via [GitHub rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets), not agent files.
 
-- Filename format: `[slug].agent.md`
-- The slug becomes the `@` mention (e.g., `qa-specialist.agent.md` → `@qa-specialist`)
-- Use lowercase with hyphens for multi-word names; allowed characters: `.`, `-`, `_`, `a-z`, `A-Z`, `0-9`
+## Adding or Modifying Agents
 
-### What Agents Can and Cannot Do
+1. Create `.github/agents/[slug].agent.md`
+2. Add YAML frontmatter with at minimum `description` and `tools`
+3. Write agent instructions in markdown
+4. Commit to `main` — active after ~1–2 minutes
 
-These are **Copilot Chat assistants** — they respond to questions and use tools to provide guidance. They are **not** autonomous agents with access control privileges.
+**Naming**: lowercase with hyphens; allowed characters: `.`, `-`, `_`, `a-z`, `A-Z`, `0-9`
 
-| Capability                           | Supported |
-| ------------------------------------ | --------- |
-| Read files and search code           | ✅ Yes    |
-| Comment on issues and PRs            | ✅ Yes    |
-| Write/edit files (with `edit` tool)  | ✅ Yes    |
-| Query GitHub API (issues, PRs, code) | ✅ Yes    |
-| Approve pull requests                | ❌ No     |
-| Block or merge pull requests         | ❌ No     |
-| Push to protected branches           | ❌ No     |
+## Troubleshooting
 
-> Merge control and branch protection are configured separately via [GitHub rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets), not via agent files.
+| Symptom                        | Fix                                                          |
+| ------------------------------ | ------------------------------------------------------------ |
+| Agent not in dropdown          | Verify file is in `.github/agents/`, frontmatter is valid, wait 2 min |
+| Agent ignores tool              | Check `tools:` list includes the tool you need              |
+| Handoffs not appearing         | Verify `agents:` and `handoffs:` frontmatter in the source agent |
+| Agent responds generically     | Add project-specific conventions to the agent body           |
 
-## 📚 Source Documentation
+## Official References
 
-These agents are derived from the organization's [AGENTS.md](../../AGENTS.md) standards document, which defines:
+- [About custom agents](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-custom-agents)
+- [Custom agents configuration reference](https://docs.github.com/en/copilot/reference/custom-agents-configuration)
+- [Creating custom agents](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents)
+- [GitHub Copilot documentation](https://docs.github.com/en/copilot)
+- [Organization rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)
 
-- Agent roles and responsibilities
-- Documentation protocols (6-point structure)
-- Testing protocols (Borda Standard)
-- Error handling protocols
-- Security protocols
-- Handoff protocols
+## Changelog
 
-## 🔗 Official References
+| Date       | Change                                                         |
+| ---------- | -------------------------------------------------------------- |
+| 2026-02-19 | Rewrite all agents: fix tools, remove boilerplate, wire mentor handoffs |
+| 2026-02-19 | Align tools and capabilities with GH docs; remove fictional permissions |
+| 2026-01-24 | Initial creation of 5 agents from AGENTS.md                    |
 
-### GitHub Copilot Custom Agents
+---
 
-- [About custom agents](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-custom-agents) - What custom agents are and how they work
-- [Custom agents configuration reference](https://docs.github.com/en/copilot/reference/custom-agents-configuration) - Full YAML frontmatter schema
-- [Creating custom agents](https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/create-custom-agents) - Step-by-step guide
-- [GitHub Copilot Documentation](https://docs.github.com/en/copilot) - Main Copilot documentation hub
-
-### Organization Configuration
-
-- [Creating Default Community Health Files](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file) - How `.github` repositories work
-- [Organization Repository Rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets) - Managing repository rules at org level
-
-## 🛠️ Troubleshooting
-
-### Agent not appearing in dropdown
-
-1. Ensure the file is in `.github/agents/` directory
-2. Verify YAML frontmatter is valid and at the top of the file
-3. Wait 1-2 minutes after committing to `main`
-4. Try refreshing Copilot Chat
-
-### Agent not responding correctly
-
-1. Check the `name` field in frontmatter matches the filename slug
-2. Verify the `tools:` section lists the capabilities you need (e.g., `- read`, `- github`)
-3. Review the agent instructions for clarity
-
-## 📝 Changelog
-
-| Date       | Change                                           |
-| ---------- | ------------------------------------------------ |
-| 2026-02-19 | Align tools and capabilities with GH docs        |
-| 2026-01-24 | Initial creation of 5 agents from AGENTS.md      |
-
-______________________________________________________________________
-
-*These agents follow the [Borda Organization Standards](../../AGENTS.md) defined in the root AGENTS.md file.*
+*These agents follow [Borda Organization Standards](../../AGENTS.md).*
