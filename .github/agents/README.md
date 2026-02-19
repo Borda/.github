@@ -139,10 +139,10 @@ These agents are derived from the organization's [AGENTS.md](../../AGENTS.md) st
 
 ## 📝 Changelog
 
-| Date       | Change                                           |
-| ---------- | ------------------------------------------------ |
-| 2026-02-19 | Align tools and capabilities with GH docs        |
-| 2026-01-24 | Initial creation of 5 agents from AGENTS.md      |
+| Date       | Change                                      |
+| ---------- | ------------------------------------------- |
+| 2026-02-19 | Align tools and capabilities with GH docs   |
+| 2026-01-24 | Initial creation of 5 agents from AGENTS.md |
 
 ______________________________________________________________________
 
