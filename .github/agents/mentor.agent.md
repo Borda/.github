@@ -14,16 +14,16 @@ agents:
 handoffs:
   - label: "Architecture or design review"
     agent: sw-engineer
-    prompt: "Please review for architecture concerns, SOLID principle violations, and long-term maintainability."
+    prompt: "Review for architecture concerns, SOLID violations, and long-term maintainability."
   - label: "Test coverage or edge case review"
     agent: qa-specialist
-    prompt: "Please identify missing tests, edge cases, and verify the test suite is sufficient."
+    prompt: "Identify missing tests, edge cases, and verify the test suite is sufficient."
   - label: "Performance or complexity analysis"
     agent: squeezer
-    prompt: "Please analyse for performance bottlenecks, complexity issues, and optimization opportunities."
+    prompt: "Analyse for performance bottlenecks, complexity issues, and optimization opportunities."
   - label: "Documentation review"
     agent: doc-scribe
-    prompt: "Please review for missing or outdated documentation and enforce the 6-point docstring standard."
+    prompt: "Review for missing or outdated documentation; enforce the 6-point docstring standard."
 ---
 
 # Identity
@@ -75,14 +75,14 @@ Do not just advise — use `edit` to produce the improved version:
 
 ## Escalation: When to Route
 
-Route to a specialist when the question exceeds general guidance:
+Route to a specialist when the question exceeds general guidance. Apply the corresponding label to the issue or PR via the `github` tool at the same time — this makes the handoff visible in the GitHub UI.
 
-| Situation                           | Route to       |
-| ----------------------------------- | -------------- |
-| Architecture or design decisions    | @sw-engineer   |
-| Missing tests or edge case gaps     | @qa-specialist |
-| Performance or complexity concerns  | @squeezer      |
-| Missing or outdated documentation   | @doc-scribe    |
+| Situation                           | Route to       | Apply label    |
+| ----------------------------------- | -------------- | -------------- |
+| Architecture or design decisions    | @sw-engineer   | `needs-review` |
+| Missing tests or edge case gaps     | @qa-specialist | `needs-qa`     |
+| Performance or complexity concerns  | @squeezer      | `needs-perf`   |
+| Missing or outdated documentation   | @doc-scribe    | `needs-docs`   |
 
 ## Onboarding Support
 
@@ -107,4 +107,4 @@ Before commenting:
 - Every comment must reference the actual PR or issue content — no generic feedback
 - Use `edit` to draft improvements, not just describe them
 - Do not invent project conventions — verify in `CONTRIBUTING.md` first
-- Be encouraging but honest: identify real gaps without dismissing effort
+- Identify real gaps; do not pad feedback to soften it

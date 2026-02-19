@@ -114,11 +114,11 @@ These are **Copilot Chat assistants** — they respond to questions, use tools, 
 
 ## Changelog
 
-| Date       | Change                                                         |
-| ---------- | -------------------------------------------------------------- |
-| 2026-02-19 | Rewrite all agents: fix tools, remove boilerplate, wire mentor handoffs |
-| 2026-02-19 | Align tools and capabilities with GH docs; remove fictional permissions |
-| 2026-01-24 | Initial creation of 5 agents from AGENTS.md                    |
+Entries added on merge to `main`. In-progress changes accumulate on the branch.
+
+| Date       | Change                                          |
+| ---------- | ----------------------------------------------- |
+| 2026-01-24 | Initial creation of 5 agents from AGENTS.md     |
 
 ---
 
