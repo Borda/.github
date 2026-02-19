@@ -196,13 +196,13 @@ The [`AGENTS.md`](AGENTS.md) file defines standards for AI coding assistants (Gi
 
 This organization provides **Custom Agents for GitHub Copilot** that can be invoked via `@` mentions in Copilot Chat. These agents are specialized AI assistants based on the roles defined in [`AGENTS.md`](AGENTS.md).
 
-| Agent             | Invoke           | Purpose                                                    |
-| ----------------- | ---------------- | ---------------------------------------------------------- |
-| **SW Engineer**   | `@sw-engineer`   | Architecture, TDD, SOLID principles, type-safe code        |
-| **QA Specialist** | `@qa-specialist` | Testing strategy, edge case hunting, enforces testing standards      |
-| **Squeezer**      | `@squeezer`      | Performance optimization, profiling, resource efficiency   |
+| Agent             | Invoke           | Purpose                                                                          |
+| ----------------- | ---------------- | -------------------------------------------------------------------------------- |
+| **SW Engineer**   | `@sw-engineer`   | Architecture, TDD, SOLID principles, type-safe code                              |
+| **QA Specialist** | `@qa-specialist` | Testing strategy, edge case hunting, enforces testing standards                  |
+| **Squeezer**      | `@squeezer`      | Performance optimization, profiling, resource efficiency                         |
 | **Doc-Scribe**    | `@doc-scribe`    | Documentation, docstrings, living docs, enforces release documentation standards |
-| **Mentor**        | `@mentor`        | Contributor onboarding, code review guidance, feedback     |
+| **Mentor**        | `@mentor`        | Contributor onboarding, code review guidance, feedback                           |
 
 ### Quick Examples
 
