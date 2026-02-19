@@ -5,7 +5,7 @@
 
 Standards for AI coding agents working in Borda repositories.
 
----
+______________________________________________________________________
 
 ## 1. Anchoring: Before Any Work
 
@@ -28,7 +28,7 @@ Standards for AI coding agents working in Borda repositories.
 
 **Precedence:** `pyproject.toml` > local `.github/` docs > upstream `.github/` defaults > this file
 
----
+______________________________________________________________________
 
 ## 2. Coding & Documentation Standards
 
@@ -44,7 +44,7 @@ Highlights:
 - **Imports**: standard library → third-party → local.
 - **Sync docs after structural changes**: adding, moving, renaming, or deleting files/modules must be followed immediately by updating any `.md` that references those paths. Do not wait to be asked.
 
----
+______________________________________________________________________
 
 ## 3. AI-Specific Constraints
 
@@ -55,21 +55,21 @@ Highlights:
 5. **Source attribution** — Cite specific files and line numbers when referencing code.
 6. **Minimal blast radius** — Prefer targeted, reversible changes; confirm before destructive actions.
 
----
+______________________________________________________________________
 
 ## 4. Agent Roles
 
 Apply all behaviors by default; emphasize the listed ones when invoked with a specific role.
 
-| Role | Focus | Emphasis |
-| :-- | :-- | :-- |
-| **SW Engineer** | Architecture & implementation | Interface-first design; SOLID; reproducible configs; fixed random seeds |
-| **QA Specialist** | Testing & reliability | Edge case matrix (`None`, empty, boundary); suspicious mindset; regression tests |
-| **Squeezer** | Performance & resources | Benchmark before optimizing; flag O(n²) hotspots; prefer lazy loading |
-| **Doc-Scribe** | Documentation | Update `README.md` on CLI/config changes; enforce docstring structure |
-| **Mentor-Bot** | Contributor experience | Actionable feedback; guide newcomers to `CONTRIBUTING.md` |
+| Role              | Focus                         | Emphasis                                                                         |
+| :---------------- | :---------------------------- | :------------------------------------------------------------------------------- |
+| **SW Engineer**   | Architecture & implementation | Interface-first design; SOLID; reproducible configs; fixed random seeds          |
+| **QA Specialist** | Testing & reliability         | Edge case matrix (`None`, empty, boundary); suspicious mindset; regression tests |
+| **Squeezer**      | Performance & resources       | Benchmark before optimizing; flag O(n²) hotspots; prefer lazy loading            |
+| **Doc-Scribe**    | Documentation                 | Update `README.md` on CLI/config changes; enforce docstring structure            |
+| **Mentor-Bot**    | Contributor experience        | Actionable feedback; guide newcomers to `CONTRIBUTING.md`                        |
 
----
+______________________________________________________________________
 
 ## 5. Critical Constraints
 
@@ -89,7 +89,7 @@ Apply all behaviors by default; emphasize the listed ones when invoked with a sp
 - Operate with least privilege; prefer read-only access where sufficient.
 - Follow the [Security Policy](.github/SECURITY.md) for sensitive operations.
 
----
+______________________________________________________________________
 
 ## 6. Commit & Branch Conventions
 
@@ -100,20 +100,20 @@ Apply all behaviors by default; emphasize the listed ones when invoked with a sp
 
 For PR review format → [CONTRIBUTING.md — Reviewing PRs](.github/CONTRIBUTING.md#reviewing-prs)
 
----
+______________________________________________________________________
 
 ## 7. Language Adaptation
 
 Adapt these principles to your stack:
 
-| Language | Type Safety | Doctests | Linting | Security Scan |
-| :-- | :-- | :-- | :-- | :-- |
-| Python | `typing` module | `>>> ` blocks | `ruff` | `ruff --select S` |
-| Rust | Static types | `///` doc-tests | `clippy` | `cargo audit` |
-| JS/TypeScript | TypeScript / JSDoc | JSDoc examples | ESLint, Prettier | `npm audit`, `snyk` |
-| Go | Static types | `Example` funcs | `golangci-lint` | `govulncheck` |
+| Language      | Type Safety        | Doctests        | Linting          | Security Scan       |
+| :------------ | :----------------- | :-------------- | :--------------- | :------------------ |
+| Python        | `typing` module    | `>>> ` blocks   | `ruff`           | `ruff --select S`   |
+| Rust          | Static types       | `///` doc-tests | `clippy`         | `cargo audit`       |
+| JS/TypeScript | TypeScript / JSDoc | JSDoc examples  | ESLint, Prettier | `npm audit`, `snyk` |
+| Go            | Static types       | `Example` funcs | `golangci-lint`  | `govulncheck`       |
 
----
+______________________________________________________________________
 
 ## Reference
 

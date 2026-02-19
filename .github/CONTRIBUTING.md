@@ -163,12 +163,12 @@ Include a one-sentence justification. Example: `🟠 Request Changes — Missing
 
 **Quality scoring (n/5)** across three dimensions:
 
-| Score | Meaning |
-| :-- | :-- |
-| 5/5 🟢 | Excellent — no issues |
-| 4/5 🟢 | Good — minor improvements possible |
-| 3/5 🟡 | Adequate — some gaps to address |
-| 2/5 🟠 | Needs Work — multiple problems |
+| Score  | Meaning                                      |
+| :----- | :------------------------------------------- |
+| 5/5 🟢 | Excellent — no issues                        |
+| 4/5 🟢 | Good — minor improvements possible           |
+| 3/5 🟡 | Adequate — some gaps to address              |
+| 2/5 🟠 | Needs Work — multiple problems               |
 | 1/5 🔴 | Poor / Missing — significant rework required |
 
 Score **Code Quality** (correctness, type hints, idioms), **Testing** (coverage, edge cases, assertion specificity), and **Documentation** (docstrings, examples, changelog).
@@ -324,14 +324,14 @@ Follow this pattern to keep the repository organized:
 {type}/{issue-number}-short-description
 ```
 
-| Type | Use for |
-| :-- | :-- |
-| `fix/` | Bug fixes — e.g., `fix/123-warning-crash` |
-| `feat/` | New features — e.g., `feat/45-class-deprecation` |
-| `docs/` | Documentation changes — e.g., `docs/update-readme` |
-| `refactor/` | Code restructuring without behavior change |
-| `test/` | Test additions or improvements |
-| `chore/` | Maintenance tasks — dependency updates, CI tweaks |
+| Type        | Use for                                            |
+| :---------- | :------------------------------------------------- |
+| `fix/`      | Bug fixes — e.g., `fix/123-warning-crash`          |
+| `feat/`     | New features — e.g., `feat/45-class-deprecation`   |
+| `docs/`     | Documentation changes — e.g., `docs/update-readme` |
+| `refactor/` | Code restructuring without behavior change         |
+| `test/`     | Test additions or improvements                     |
+| `chore/`    | Maintenance tasks — dependency updates, CI tweaks  |
 
 > [!TIP]
 > Always include the issue number when one exists. Without an issue, use a descriptive name: `fix/typo-in-readme`.

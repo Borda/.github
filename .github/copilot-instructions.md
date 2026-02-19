@@ -7,7 +7,7 @@ You are assisting with a **Python project** in the Borda organization (typically
 
 **Trust these instructions.** Only search the codebase if something here seems incomplete or incorrect for the specific project.
 
----
+______________________________________________________________________
 
 ## Project Context
 
@@ -25,7 +25,7 @@ Read `README.md` for project-specific setup. Check `pyproject.toml` for tool con
 
 Local `CONTRIBUTING.md` overrides these instructions where they conflict.
 
----
+______________________________________________________________________
 
 ## Coding Conventions
 
@@ -65,7 +65,7 @@ Sections: `Summary`, `Args`, `Returns`, `Raises`, `Examples` (with executable `>
 - **Experiment tracking**: log hyperparameters, metrics, and environment for every run.
 - **Performance**: profile before optimizing; flag O(n²) complexity; prefer vectorization.
 
----
+______________________________________________________________________
 
 ## PR Reviews
 
@@ -81,7 +81,7 @@ Quick reference:
 
 Use GitHub inline `suggestion` blocks for code fixes; reference their permalinks in the summary. Distinguish blocking issues from nice-to-haves.
 
----
+______________________________________________________________________
 
 ## Reference
 
