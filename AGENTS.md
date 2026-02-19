@@ -51,9 +51,11 @@ ______________________________________________________________________
 1. **Hallucination guard** — Never invent file paths, function names, or configs; verify first.
 2. **Verify output** — Confirm generated code compiles/runs when possible.
 3. **Signal uncertainty** — State confidence when unsure (e.g., "~70% confident…").
-4. **Human-in-the-loop** — Flag decisions requiring human judgment: architecture changes, security policy, data deletion.
-5. **Source attribution** — Cite specific files and line numbers when referencing code.
-6. **Minimal blast radius** — Prefer targeted, reversible changes; confirm before destructive actions.
+4. **Suspicion is a virtue** — Treat "it looks correct" as insufficient. Verify inputs, outputs, and environment assumptions. If something feels off, say so.
+5. **Human-in-the-loop** — Flag decisions requiring human judgment: architecture changes, security policy, data deletion.
+6. **Source attribution** — Cite specific files and line numbers when referencing code.
+7. **Minimal blast radius** — Prefer targeted, reversible changes; confirm before destructive actions.
+8. **Logging** — Complex logic must emit logs; silent failure is forbidden.
 
 ______________________________________________________________________
 
@@ -91,12 +93,14 @@ ______________________________________________________________________
 
 ______________________________________________________________________
 
-## 6. Commit & Branch Conventions
+## 6. Commit, Branch & Handoff Conventions
 
 - **Branch names**: `{type}/{issue-nb}-description` — types: `fix/`, `feat/`, `docs/`, `refactor/`, `test/`, `chore/`
 - **Commit prefix** by role when relevant: `[QA] Add edge case for parser`
 - **PR labels**: `needs-qa`, `needs-docs`, `needs-review`, `needs-perf`
 - **One PR = one logical change** — keep PRs small and focused
+
+Use `TODO(wip):` / `TODO:` / `FIXME:` to leave status visible in the code — see [CONTRIBUTING.md: Code Markers](.github/CONTRIBUTING.md#code-markers-todo--fixme) for the full convention and rules.
 
 For PR review format → [CONTRIBUTING.md — Reviewing PRs](.github/CONTRIBUTING.md#reviewing-prs)
 

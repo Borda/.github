@@ -302,6 +302,28 @@ def filter_values(data: list[float], threshold: float = 0.5) -> list[float]:
 - **Lazy loading** — Prefer deferred imports and on-demand computation for large models/datasets.
 - **Experiment logging** — Track hyperparameters, metrics, and environment details for every run.
 
+### Code Markers (TODO / FIXME)
+
+Leave structured comments so that intent and status are visible in the code itself — the next contributor or agent can determine what still needs doing without reading conversation history.
+
+| Marker       | Meaning                                                                                             |
+| :----------- | :-------------------------------------------------------------------------------------------------- |
+| `TODO(wip):` | Work is **incomplete** — must be continued before this can be considered done.                      |
+| `TODO:`      | Work is done, but a worthwhile follow-up was spotted — scoped observation, not blocking.            |
+| `FIXME:`     | Work is done, but there is a suspected related issue with high confidence — deserves a closer look. |
+
+```python
+# TODO(wip): implement retry logic — stub written, needs exponential backoff
+# TODO: consider LRU cache here once usage patterns are clearer
+# FIXME: assumes sorted input — verify upstream always guarantees order
+```
+
+**Rules:**
+
+- Remove `TODO(wip):` in the **same commit** when the referenced work is complete — never leave it dangling.
+- `TODO:` and `FIXME:` may persist until addressed in a follow-up issue or PR; open an issue if the concern is significant.
+- All three are greppable: `grep -r "TODO\|FIXME" .`
+
 ## 💎 Quality Expectations
 
 > [!IMPORTANT]
