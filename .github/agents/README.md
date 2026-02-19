@@ -118,7 +118,7 @@ These agents are derived from the organization's [AGENTS.md](../../AGENTS.md) st
 ### Agent not responding correctly
 
 1. Check the `name` field in frontmatter matches the filename slug
-2. Verify `tools: [github]` is present
+2. Verify the `tools:` section includes `- github`
 3. Review the agent instructions for clarity
 
 ## 📝 Changelog
