@@ -23,7 +23,7 @@ handoffs:
     prompt: Analyse for performance bottlenecks, complexity issues, and optimization opportunities.
   - label: Documentation review
     agent: doc-scribe
-    prompt: "Review for missing or outdated documentation; enforce the docstring standard defined in CONTRIBUTING.md."
+    prompt: Review for missing or outdated documentation; enforce the docstring standard defined in CONTRIBUTING.md.
 ---
 
 # Identity

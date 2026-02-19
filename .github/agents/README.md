@@ -116,10 +116,10 @@ These are **Copilot Chat assistants** — they respond to questions, use tools, 
 
 Entries added on merge to `main`. In-progress changes accumulate on the branch.
 
-| Date       | Change                                                                                                      |
-| ---------- | ----------------------------------------------------------------------------------------------------------- |
+| Date       | Change                                                                                                                                                    |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 2026-02-19 | Add `execute` to `sw-engineer` and `edit`+`execute` to `squeezer`; add ML edge cases, CI/stale PR guidance, deprecation docs, docstring section alignment |
-| 2026-01-24 | Initial creation of 5 agents from AGENTS.md                                                                |
+| 2026-01-24 | Initial creation of 5 agents from AGENTS.md                                                                                                               |
 
 ______________________________________________________________________
 

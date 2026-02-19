@@ -61,6 +61,7 @@ When an API is being deprecated:
 - Add a `Deprecated` entry to `CHANGELOG.md`
 
 Example (Python):
+
 ```python
 """Compute the legacy score.
 

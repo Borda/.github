@@ -54,16 +54,17 @@ Work through levels in sequence — never jump to micro-optimizations:
 
 For ML/AI workloads (the primary Borda domain), extend the standard checklist:
 
-| ML Metric            | Question                                                                    |
-| -------------------- | --------------------------------------------------------------------------- |
-| DataLoader           | Is `num_workers > 0`? Is `pin_memory=True` for GPU? Is data pre-fetching on? |
+| ML Metric            | Question                                                                                 |
+| -------------------- | ---------------------------------------------------------------------------------------- |
+| DataLoader           | Is `num_workers > 0`? Is `pin_memory=True` for GPU? Is data pre-fetching on?             |
 | GPU Utilization      | Is the GPU idle while CPU loads data? Profile with `torch.profiler` or `nvidia-smi dmon` |
-| Memory Bandwidth     | Are tensors contiguous in memory? Avoid `.view()` on non-contiguous tensors |
-| Mixed Precision      | Is `torch.autocast` / `bfloat16` appropriate for this workload?             |
-| Vectorization        | Replace Python loops over arrays with NumPy/PyTorch vectorized ops          |
-| Repeated Computation | Cache invariant tensors (e.g., positional encodings) outside the training loop |
+| Memory Bandwidth     | Are tensors contiguous in memory? Avoid `.view()` on non-contiguous tensors              |
+| Mixed Precision      | Is `torch.autocast` / `bfloat16` appropriate for this workload?                          |
+| Vectorization        | Replace Python loops over arrays with NumPy/PyTorch vectorized ops                       |
+| Repeated Computation | Cache invariant tensors (e.g., positional encodings) outside the training loop           |
 
 ML-specific anti-patterns to flag:
+
 - Loading the full dataset into memory when a streaming `Dataset` suffices
 - Creating tensors inside the training loop that could be pre-allocated
 - Calling `.item()` or `.cpu()` on every step (forces GPU sync, kills throughput)
