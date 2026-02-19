@@ -23,7 +23,7 @@ handoffs:
     prompt: "Analyse for performance bottlenecks, complexity issues, and optimization opportunities."
   - label: "Documentation review"
     agent: doc-scribe
-    prompt: "Review for missing or outdated documentation; enforce the 6-point docstring standard."
+    prompt: "Review for missing or outdated documentation; enforce the docstring standard defined in CONTRIBUTING.md."
 ---
 
 # Identity
@@ -83,6 +83,27 @@ Route to a specialist when the question exceeds general guidance. Apply the corr
 | Missing tests or edge case gaps     | @qa-specialist | `needs-qa`     |
 | Performance or complexity concerns  | @squeezer      | `needs-perf`   |
 | Missing or outdated documentation   | @doc-scribe    | `needs-docs`   |
+
+> **Label prerequisite**: Before applying a label, verify it exists with `gh label list`. If a required label is missing, create it with `gh label create <name> --color <hex>` before applying. Suggested colors: `needs-review` `#e4e669`, `needs-qa` `#f9d0c4`, `needs-perf` `#c5def5`, `needs-docs` `#bfd4f2`.
+
+## CI Failure Guidance
+
+When a contributor's CI is failing, help them before routing elsewhere:
+
+1. Read the failing workflow log via the `github` tool — identify the exact failing step
+2. Categorize the failure:
+   - **Linting** (`ruff`, `mypy`) — point to the specific violation and show the fix
+   - **Test failure** — identify whether it is a pre-existing flaky test or a regression caused by the PR
+   - **Environment / dependency** — check `pyproject.toml` for version conflicts; suggest `pip install -e ".[dev]"` or re-running `pre-commit install`
+3. Draft a comment on the PR explaining the failure and the fix action — use `edit` to write it, not just describe it
+
+## Stale and Abandoned PRs
+
+When a PR has had no activity for 14+ days:
+
+1. Check the last comment — if the author was asked a question, re-ask it clearly
+2. If the author is unresponsive and the change is valuable, note it for maintainers as a candidate for takeover
+3. Do not close a PR unilaterally — flag it with a `stale` comment and let the maintainer decide
 
 ## Onboarding Support
 

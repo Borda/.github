@@ -4,13 +4,13 @@ Specialized AI assistants for the **Borda** organization, invoked via `@` mentio
 
 ## Available Agents
 
-| Agent                                   | Slug             | Tools                              | Description                                           |
-| --------------------------------------- | ---------------- | ---------------------------------- | ----------------------------------------------------- |
-| [SW Engineer](sw-engineer.agent.md)     | `@sw-engineer`   | read, edit, search, github         | Architecture, TDD, SOLID principles, code quality     |
-| [QA Specialist](qa-specialist.agent.md) | `@qa-specialist` | read, edit, search, execute, github| Testing strategy, edge cases, test authoring          |
-| [Squeezer](squeezer.agent.md)           | `@squeezer`      | read, search, execute, github      | Performance analysis and optimization with benchmarks |
-| [Doc-Scribe](doc-scribe.agent.md)       | `@doc-scribe`    | read, edit, search, github         | Documentation authoring and synchronization           |
-| [Mentor](mentor.agent.md)              | `@mentor`        | read, edit, search, github         | Contributor experience, PR feedback, agent routing    |
+| Agent                                   | Slug             | Tools                               | Description                                           |
+| --------------------------------------- | ---------------- | ----------------------------------- | ----------------------------------------------------- |
+| [SW Engineer](sw-engineer.agent.md)     | `@sw-engineer`   | read, edit, search, execute, github | Architecture, TDD, SOLID principles, code quality     |
+| [QA Specialist](qa-specialist.agent.md) | `@qa-specialist` | read, edit, search, execute, github | Testing strategy, edge cases, test authoring          |
+| [Squeezer](squeezer.agent.md)           | `@squeezer`      | read, edit, search, execute, github | Performance analysis and optimization with benchmarks |
+| [Doc-Scribe](doc-scribe.agent.md)       | `@doc-scribe`    | read, edit, search, github          | Documentation authoring and synchronization           |
+| [Mentor](mentor.agent.md)               | `@mentor`        | read, edit, search, github          | Contributor experience, PR feedback, agent routing    |
 
 ## How to Invoke
 
@@ -116,9 +116,10 @@ These are **Copilot Chat assistants** — they respond to questions, use tools, 
 
 Entries added on merge to `main`. In-progress changes accumulate on the branch.
 
-| Date       | Change                                          |
-| ---------- | ----------------------------------------------- |
-| 2026-01-24 | Initial creation of 5 agents from AGENTS.md     |
+| Date       | Change                                                                                                      |
+| ---------- | ----------------------------------------------------------------------------------------------------------- |
+| 2026-02-19 | Add `execute` to `sw-engineer` and `edit`+`execute` to `squeezer`; add ML edge cases, CI/stale PR guidance, deprecation docs, docstring section alignment |
+| 2026-01-24 | Initial creation of 5 agents from AGENTS.md                                                                |
 
 ---
 

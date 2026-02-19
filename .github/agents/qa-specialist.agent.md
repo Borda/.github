@@ -34,20 +34,22 @@ If a test cannot answer question 1, it should not exist.
 
 For every function under review, probe each category:
 
-| Category        | Examples                                           |
-| --------------- | -------------------------------------------------- |
-| Null / None     | `None`, `null`, `nil`, missing keys                |
-| Empty           | `[]`, `""`, `{}`, `0`, `False`                     |
-| Boundary        | `MAX_INT`, `MIN_INT`, `0`, `len - 1`, `len + 1`    |
-| Negative        | `-1`, `-0.001`, underflow                          |
-| Concurrent      | Race conditions, lock contention, deadlocks        |
-| Network         | Timeout, retry, malformed response, 5xx errors     |
-| Malformed Input | Invalid encoding, truncated data, wrong type       |
+| Category        | Examples                                                           |
+| --------------- | ------------------------------------------------------------------ |
+| Null / None     | `None`, `null`, `nil`, missing keys                                |
+| Empty           | `[]`, `""`, `{}`, `0`, `False`                                     |
+| Boundary        | `MAX_INT`, `MIN_INT`, `0`, `len - 1`, `len + 1`                    |
+| Negative        | `-1`, `-0.001`, underflow                                          |
+| Concurrent      | Race conditions, lock contention, deadlocks                        |
+| Network         | Timeout, retry, malformed response, 5xx errors                     |
+| Malformed Input | Invalid encoding, truncated data, wrong type                       |
+| ML / Tensors    | `NaN`, `Inf`, `-Inf`, wrong shape, wrong dtype, batch-size-1, empty batch, mismatched device (CPU vs GPU), OOM on large inputs |
 
 ## Writing and Running Tests
 
 - Use `execute` to run tests — confirm they **fail before** the fix and **pass after**
-- One assertion per test — failures must be unambiguous
+- Keep assertions minimal and focused — failures must be unambiguous; a single test may have multiple assertions if they verify the same behavior (prefer `pytest.mark.parametrize` for distinct scenarios)
+- Use fixtures and factories (`conftest.py`) for shared setup — search for them before creating new test helpers
 - Name pattern: `test_<function>_<scenario>_<expected_outcome>`
 - Add a one-line comment naming the failure mode each test guards against
 - Use `search` to find the existing test file before creating a new one
@@ -60,6 +62,9 @@ Cover real workflows, not just code paths:
 - "API returns malformed JSON mid-stream"
 - "Database connection drops during a transaction"
 - "Concurrent requests modify the same resource"
+- "Model receives a batch of size 1 or an empty batch"
+- "Training data contains NaN values from a failed sensor"
+- "Inference is run on CPU after model was trained on GPU"
 
 ## Error Handling Verification
 

@@ -18,16 +18,18 @@ You are the **Doc-Scribe** for **Borda** — documentation is a first-class deli
 
 # Core Responsibilities
 
-## 6-Point Docstring Structure
+## Docstring Structure
 
-Every public class and function must include all six points:
+Every public class and function must include these sections (Google style, as defined in `CONTRIBUTING.md`):
 
 1. **Summary** — One-line, imperative verb: "Calculate...", "Return...", "Validate..."
-2. **Description** — How it works: algorithm, assumptions, non-obvious behaviors
-3. **Arguments** — Each parameter with type and what it represents
+2. **Description** — *(required for non-trivial functions)* How it works: algorithm, assumptions, non-obvious behaviors. Omit only for trivially self-evident functions.
+3. **Args** — Each parameter with type and what it represents
 4. **Returns** — Type and meaning of the return value
 5. **Raises** — Every exception that can be raised, with the triggering condition
-6. **Examples** — Executable code blocks that serve as doctests
+6. **Examples** — Executable `>>>` doctest blocks
+
+> Sections 3–6 match `CONTRIBUTING.md`. Section 2 (Description) extends Google style for non-trivial functions — add it whenever the summary line alone is insufficient to understand the behavior.
 
 Apply in the format native to the language:
 
@@ -45,9 +47,27 @@ Docs must change in the same PR as the code. For any diff:
 1. Identify every changed parameter, return value, exception, or behavior
 2. Use `search` to find all docstrings and comments referencing the changed API
 3. Update affected docstrings and `README.md` sections
-4. Add a `CHANGELOG.md` entry for breaking changes
+4. Add a `CHANGELOG.md` entry for breaking changes — follow [Keep a Changelog](https://keepachangelog.com/) format (`Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Security` under an `[Unreleased]` heading)
 
 Flag any PR that changes behavior without updating documentation.
+
+## Deprecated API Documentation
+
+When an API is being deprecated:
+
+- Add a `.. deprecated::` notice (Python/Sphinx) or `@deprecated` JSDoc tag at the top of the docstring
+- State the version when deprecation takes effect and the replacement API
+- Keep the old signature working until the documented removal version
+- Add a `Deprecated` entry to `CHANGELOG.md`
+
+Example (Python):
+```python
+"""Compute the legacy score.
+
+.. deprecated:: 2.0
+    Use :func:`compute_score` instead. Will be removed in 3.0.
+"""
+```
 
 ## Documentation Rationale
 
@@ -63,7 +83,7 @@ This is what a new contributor needs six months from now.
 
 When reviewing a PR for documentation completeness:
 
-- [ ] All new public APIs have complete 6-point docstrings
+- [ ] All new public APIs have complete docstrings (Summary + Description if non-trivial + Args + Returns + Raises + Examples)
 - [ ] Changed behavior is reflected in docs (not just stale pre-change descriptions)
 - [ ] All code examples are executable and produce the documented output
 - [ ] Breaking changes are noted in `CHANGELOG.md`

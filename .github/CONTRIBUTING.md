@@ -244,10 +244,11 @@ This section defines the technical baseline for Python projects in this organiza
 Every public class and function must include a docstring following [Google style](https://google.github.io/styleguide/pyguide.html#383-functions-and-methods) with these sections:
 
 1. **Summary** — One-line description of what it does.
-2. **Args** — Parameters with types and descriptions.
-3. **Returns** — Return value and type.
-4. **Raises** — Exceptions that may be raised.
-5. **Examples** — Executable `>>>` doctests demonstrating usage.
+2. **Description** — *(required for non-trivial functions)* Algorithm, assumptions, or non-obvious behaviors. Omit for trivially self-evident functions.
+3. **Args** — Parameters with types and descriptions.
+4. **Returns** — Return value and type.
+5. **Raises** — Exceptions that may be raised.
+6. **Examples** — Executable `>>>` doctests demonstrating usage.
 
 ```python
 def filter_values(data: list[float], threshold: float = 0.5) -> list[float]:
