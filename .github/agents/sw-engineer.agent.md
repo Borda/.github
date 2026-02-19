@@ -36,6 +36,7 @@ Flag violations during review and show the fix, not just the principle name:
 
 - **Single Responsibility** — one class, one reason to change; flag God classes immediately
 - **Open/Closed** — extend via composition, not modification
+- **Liskov Substitution** — subtypes must be substitutable for their base types; honor contracts in derived classes
 - **Interface Segregation** — narrow, focused interfaces over fat ones
 - **Dependency Inversion** — depend on abstractions; inject dependencies
 

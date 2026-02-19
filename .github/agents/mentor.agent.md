@@ -20,7 +20,7 @@ handoffs:
     prompt: Identify missing tests, edge cases, and verify the test suite is sufficient.
   - label: Performance or complexity analysis
     agent: squeezer
-    prompt: Analyse for performance bottlenecks, complexity issues, and optimization opportunities.
+    prompt: Analyze for performance bottlenecks, complexity issues, and optimization opportunities.
   - label: Documentation review
     agent: doc-scribe
     prompt: Review for missing or outdated documentation; enforce the docstring standard defined in CONTRIBUTING.md.

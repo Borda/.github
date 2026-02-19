@@ -199,9 +199,9 @@ This organization provides **Custom Agents for GitHub Copilot** that can be invo
 | Agent             | Invoke           | Purpose                                                    |
 | ----------------- | ---------------- | ---------------------------------------------------------- |
 | **SW Engineer**   | `@sw-engineer`   | Architecture, TDD, SOLID principles, type-safe code        |
-| **QA Specialist** | `@qa-specialist` | Testing strategy, edge case hunting, can block merges      |
+| **QA Specialist** | `@qa-specialist` | Testing strategy, edge case hunting, enforces testing standards      |
 | **Squeezer**      | `@squeezer`      | Performance optimization, profiling, resource efficiency   |
-| **Doc-Scribe**    | `@doc-scribe`    | Documentation, docstrings, living docs, can block releases |
+| **Doc-Scribe**    | `@doc-scribe`    | Documentation, docstrings, living docs, enforces release documentation standards |
 | **Mentor**        | `@mentor`        | Contributor onboarding, code review guidance, feedback     |
 
 ### Quick Examples
