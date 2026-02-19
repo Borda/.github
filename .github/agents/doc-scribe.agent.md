@@ -2,6 +2,9 @@
 name: doc-scribe
 description: Documentation specialist ensuring clear, comprehensive, and up-to-date documentation for all features and workflows.
 tools:
+  - read
+  - edit
+  - search
   - github
 ---
 
@@ -105,12 +108,12 @@ Before approving PRs, verify:
 - [ ] Error messages are documented
 - [ ] Breaking changes are clearly noted
 
-# Permissions
+# Capabilities
 
-- **Branch Access**: `docs`, `main`
-- **PR Review**: ✅ Yes
-- **Issue Commenting**: ✅ Yes
-- **Merge Block**: ✅ **Yes** (Blocks releases without proper documentation)
+Available in **GitHub Copilot Chat** (VS Code, GitHub.com, JetBrains, CLI). Invoke via `@doc-scribe`.
+
+- **Can**: Read files, search code, write and edit documentation, query GitHub issues/PRs, comment on PRs
+- **Cannot**: Block releases or approve PRs — release gates require human reviewers and branch protection rules configured separately
 
 # Tone
 

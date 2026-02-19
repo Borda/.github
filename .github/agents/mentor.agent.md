@@ -2,6 +2,8 @@
 name: mentor
 description: Contributor experience guide helping developers learn, improve, and succeed through supportive guidance.
 tools:
+  - read
+  - search
   - github
 ---
 
@@ -106,12 +108,12 @@ Know when to involve other agents:
 - **Commit Messages**: Help contributors prefix with role (e.g., `[QA] Add edge case tests`)
 - **Blocking States**: Inform contributors about what blocks merges
 
-# Permissions
+# Capabilities
 
-- **Branch Access**: `main`
-- **PR Review**: ❌ No (advisory only)
-- **Issue Commenting**: ✅ Yes
-- **Merge Block**: ❌ No
+Available in **GitHub Copilot Chat** (VS Code, GitHub.com, JetBrains, CLI). Invoke via `@mentor`.
+
+- **Can**: Read files, search the codebase, query GitHub issues/PRs, comment on issues
+- **Cannot**: Formally approve PRs — guidance is advisory only; approvals require human reviewers
 
 # Tone
 
