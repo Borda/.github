@@ -5,6 +5,9 @@ Thank you for your interest in contributing! We appreciate all contributions and
 > [!TIP]
 > **First time contributing to open source?** Check out [First Contributions](https://github.com/firstcontributions/first-contributions) for a beginner-friendly guide that walks you through the entire process.
 
+> [!NOTE]
+> **Configuration files are the source of truth.** If this documentation ever contradicts `pyproject.toml`, `.pre-commit-config.yaml`, or other config files, trust the config. Please open an issue so the docs can be corrected.
+
 ## 📜 Code of Conduct
 
 Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md). We expect all contributors to be respectful, considerate, and help create a welcoming environment for everyone. This ensures our community remains inclusive and supportive for people from all backgrounds.
@@ -136,6 +139,84 @@ If no issue exists, open one first to discuss the change before implementing it.
 - **Smaller PRs are easier to review** – Large PRs can be overwhelming and take longer to merge
 - **Split large changes into multiple PRs** – Break complex features into smaller, manageable pieces
 
+### Reviewing PRs
+
+When reviewing a pull request, follow this structured format to give consistent, actionable feedback.
+
+**Overall recommendation** — open with one of:
+
+- 🟢 **Approve** — Ready to merge as-is
+- 🟡 **Minor Suggestions** — Non-blocking improvements recommended
+- 🟠 **Request Changes** — Issues must be addressed before merge
+- 🔴 **Block** — Critical problems require major rework
+
+Include a one-sentence justification. Example: `🟠 Request Changes — Missing tests for error path and docstring not in Google style.`
+
+**Completeness checklist** — mark each: ✅ Complete / ⚠️ Incomplete / ❌ Missing / 🔵 N/A
+
+- [ ] Clear description of what changed and why
+- [ ] Linked to a related issue (`Fixes #NNN` or `Relates to #NNN`)
+- [ ] Tests added/updated (happy path, failure path, edge cases)
+- [ ] Google-style docstrings for all new/changed public APIs
+- [ ] No secrets or credentials introduced
+- [ ] Linting and CI checks pass
+
+**Quality scoring (n/5)** across three dimensions:
+
+| Score | Meaning |
+| :-- | :-- |
+| 5/5 🟢 | Excellent — no issues |
+| 4/5 🟢 | Good — minor improvements possible |
+| 3/5 🟡 | Adequate — some gaps to address |
+| 2/5 🟠 | Needs Work — multiple problems |
+| 1/5 🔴 | Poor / Missing — significant rework required |
+
+Score **Code Quality** (correctness, type hints, idioms), **Testing** (coverage, edge cases, assertion specificity), and **Documentation** (docstrings, examples, changelog).
+
+**Risk assessment** — flag explicitly with severity (1–5):
+
+- **Breaking changes** — API signature changes, removed features; must include migration notes
+- **Performance** — O(n²) loops, memory-heavy operations on large arrays
+- **Security** — unvalidated input, credential exposure
+- **Compatibility** — new Python version requirements, new heavy dependencies
+
+**Review summary template:**
+
+```
+## Review Summary
+
+### Recommendation
+[emoji] [Status] — [One-sentence justification]
+
+### Completeness
+- ✅ [items complete]
+- ❌ [items missing]
+
+### Quality Scores
+- Code: n/5 [emoji] — [reason]
+- Testing: n/5 [emoji] — [reason]
+- Documentation: n/5 [emoji] — [reason]
+
+### Risk: n/5 [emoji] — [brief description]
+
+### Must Fix
+1. [Specific issue — link to inline comment]
+
+### Suggestions (non-blocking)
+1. [Optional improvement — link to inline suggestion]
+
+### Next Steps
+1. [Clear action item for the author]
+```
+
+**Best practices:**
+
+- Use GitHub inline comments and `suggestion` blocks on the code itself; reference their permalinks in the summary.
+- Explain *why* something is a problem, not just *what* is wrong.
+- Distinguish blocking issues from nice-to-haves.
+- Acknowledge good work — don't only list problems.
+- Defer style nitpicks to automated tools (`ruff`, `pre-commit`); don't block PRs on what linters can auto-fix.
+
 ## ✅ Tests and Quality Assurance
 
 Tests and quality improvements are **always welcome**! These contributions are highly valuable because they:
@@ -234,6 +315,26 @@ We value all levels of contribution and want to encourage everyone, regardless o
 - **Be meaningful and reasonable** – Contribute what you can realistically complete. Even small improvements make a difference.
 
 We don't expect perfection. We expect genuine effort. If you're unsure about something, ask! The community is here to help.
+
+## 🌿 Branch Naming Convention
+
+Follow this pattern to keep the repository organized:
+
+```
+{type}/{issue-number}-short-description
+```
+
+| Type | Use for |
+| :-- | :-- |
+| `fix/` | Bug fixes — e.g., `fix/123-warning-crash` |
+| `feat/` | New features — e.g., `feat/45-class-deprecation` |
+| `docs/` | Documentation changes — e.g., `docs/update-readme` |
+| `refactor/` | Code restructuring without behavior change |
+| `test/` | Test additions or improvements |
+| `chore/` | Maintenance tasks — dependency updates, CI tweaks |
+
+> [!TIP]
+> Always include the issue number when one exists. Without an issue, use a descriptive name: `fix/typo-in-readme`.
 
 ## 🚀 Quick Start
 

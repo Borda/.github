@@ -3,19 +3,27 @@
 
 # GitHub Copilot Instructions
 
-You are assisting with a **Python project** (ML/AI research or data science). Follow these instructions when generating code, reviewing PRs, and answering questions. Trust these instructions and only search the codebase if something here is incomplete or appears incorrect.
+You are assisting with a **Python project** in the Borda organization (typically ML/AI research or data science). Follow these instructions for code generation, Q&A, and PR reviews.
 
-Read `README.md` for project-specific setup. Check `pyproject.toml` for dependencies and tool configuration. The local `CONTRIBUTING.md` overrides these instructions where they conflict.
+**Trust these instructions.** Only search the codebase if something here seems incomplete or incorrect for the specific project.
 
 ---
 
 ## Project Context
 
-- **Language**: Python 3.10+
-- **Linting / formatting**: `ruff` (style, isort, security via `--select S`), enforced through `pre-commit`
-- **Testing**: `pytest` + doctests
-- **Docstrings**: Google style
-- **Packaging**: `pyproject.toml` (`pip` / `uv`)
+Read `README.md` for project-specific setup. Check `pyproject.toml` for tool configuration — **it overrides this file where they conflict.**
+
+> [!WARNING]
+> **Config files are the source of truth.** If `pyproject.toml` or `.pre-commit-config.yaml` contradict any documentation, trust the config and flag the mismatch.
+
+**If `.github/` docs are absent** (e.g., freshly forked repo), check for a fork with `gh repo view --json parent` and load defaults from upstream. For Borda projects:
+
+- `https://raw.githubusercontent.com/Borda/.github/main/.github/CONTRIBUTING.md`
+- `https://raw.githubusercontent.com/Borda/.github/main/AGENTS.md`
+
+**Typical stack:** Python 3.10+, `ruff` (linting + isort + security via `--select S`), `mypy`, `pytest` + doctests, `pre-commit`, `pyproject.toml`.
+
+Local `CONTRIBUTING.md` overrides these instructions where they conflict.
 
 ---
 
@@ -23,168 +31,63 @@ Read `README.md` for project-specific setup. Check `pyproject.toml` for dependen
 
 ### Python
 
-- Add **type hints** to all new functions and methods.
-- Follow **PEP 8**: `snake_case` for functions/variables, `PascalCase` for classes.
-- Import order: standard library → third-party → local.
+- **Type hints** on all new functions and methods (align with `python_requires` in `pyproject.toml`).
+- **PEP 8**: `snake_case` functions/variables, `PascalCase` classes.
+- **Imports**: standard library → third-party → local.
 - Prefer explicit over implicit — no magic values, no silent fallbacks.
-- Clarity over cleverness: write code that is easy to debug, even if slightly more verbose.
 
 ### Docstrings (Google style)
 
-```python
-def compute_mean(data: list[float], scale: float = 1.0) -> float:
-    """Compute the scaled mean of a dataset.
-
-    Args:
-        data: Input values. Must be non-empty.
-        scale: Multiplier applied to the result.
-
-    Returns:
-        Scaled mean value.
-
-    Raises:
-        ValueError: If data is empty.
-
-    Examples:
-        >>> compute_mean([1.0, 2.0, 3.0])
-        2.0
-        >>> compute_mean([1.0, 2.0, 3.0], scale=2.0)
-        4.0
-    """
-```
+Sections: `Summary`, `Args`, `Returns`, `Raises`, `Examples` (with executable `>>>` doctests). See [CONTRIBUTING.md: Documentation](CONTRIBUTING.md#documentation) for a full example.
 
 ### Testing
 
 - Write tests **before** fixing bugs or implementing features (TDD).
-- Use **doctests** in docstrings for simple input/output examples; use `pytest` for complex scenarios.
-- Cover edge cases: `None`, empty inputs (`[]`, `""`), zero/negative values, boundary conditions.
+- Use **doctests** for simple input/output examples; use `pytest` for complex scenarios.
+- Cover edge cases: `None`, empty inputs, zero/negative values, boundary conditions.
 - Assertions must be specific — "no exception raised" is not a sufficient test.
 
 ### Error Handling
 
-- **Fail fast** — raise exceptions early with contextual messages (include input values and expected vs. actual).
+- **Fail fast** — raise exceptions early with contextual messages (include input values).
 - Never return magic error codes; never silently swallow exceptions.
-- Log or re-raise every caught exception.
 
 ### Security
 
 - Never commit `.env` files, API keys, or credentials.
 - Validate and sanitize all external input (CLI args, file uploads, API responses).
-- Use `ruff --select S` for security linting.
 
 ### ML / AI Research
 
-- **Reproducibility**: use fixed random seeds; pin dataset versions and model configs.
-- **Data validation**: assert tensor/array shapes, dtypes, and value ranges before processing.
-- **Lazy loading**: prefer deferred imports and on-demand computation for large models or datasets.
-- **Experiment tracking**: log hyperparameters, metrics, and environment details for every run.
-- **Performance**: profile before optimizing; flag O(n²) complexity in hot paths; prefer NumPy vectorization over Python loops.
+- **Reproducibility**: fixed random seeds; pin dataset versions and model configs.
+- **Data validation**: assert shapes, dtypes, and value ranges before processing.
+- **Lazy loading**: deferred imports and on-demand computation for large models/datasets.
+- **Experiment tracking**: log hyperparameters, metrics, and environment for every run.
+- **Performance**: profile before optimizing; flag O(n²) complexity; prefer vectorization.
 
 ---
 
-## PR Review Guidelines
+## PR Reviews
 
-When reviewing a pull request, always follow this structured format.
+When reviewing a PR, use the structured format defined in [CONTRIBUTING.md — Reviewing PRs](CONTRIBUTING.md#reviewing-prs).
 
-### 1. Overall Recommendation
+Quick reference:
 
-Open with a clear status and a one-sentence justification:
+1. **Recommendation**: 🟢 Approve / 🟡 Minor Suggestions / 🟠 Request Changes / 🔴 Block — with a one-sentence justification.
+2. **Completeness**: description, linked issue, tests, docstrings, no secrets, CI passing.
+3. **Quality scores** (n/5): Code, Testing, Documentation.
+4. **Risk assessment**: breaking changes, performance, security, compatibility.
+5. **Summary** using the template in [CONTRIBUTING.md](CONTRIBUTING.md#reviewing-prs).
 
-- 🟢 **Approve** — Ready to merge as-is
-- 🟡 **Minor Suggestions** — Non-blocking improvements recommended
-- 🟠 **Request Changes** — Issues must be addressed before merge
-- 🔴 **Block** — Critical problems require major rework
+Use GitHub inline `suggestion` blocks for code fixes; reference their permalinks in the summary. Distinguish blocking issues from nice-to-haves.
 
-Example:
-```
-🟠 Request Changes — Missing unit tests for `DataProcessor` and docstrings not in Google style.
-See inline comments for specifics.
-```
+---
 
-### 2. PR Completeness Checklist
+## Reference
 
-Mark each item: ✅ Complete / ⚠️ Incomplete / ❌ Missing / 🔵 N/A
-
-- [ ] Clear description of what changed and why
-- [ ] Type of change noted (bug fix, feature, refactor, docs…)
-- [ ] Linked to a related issue
-- [ ] Tests added or updated (unit tests, edge cases)
-- [ ] Google-style docstrings for all new/changed public APIs
-- [ ] No secrets or credentials introduced
-- [ ] Linting passes (`ruff`, `pre-commit`)
-- [ ] Changelog / docs entry for user-facing changes (if applicable)
-
-Call out missing items explicitly with links to relevant inline comments.
-
-### 3. Quality Scoring (n/5)
-
-Score three dimensions on a **1–5 scale** with a brief justification:
-
-| Score | Meaning |
-| :-- | :-- |
-| 5/5 🟢 | Excellent — no issues |
-| 4/5 🟢 | Good — minor improvements possible |
-| 3/5 🟡 | Adequate — some issues to address |
-| 2/5 🟠 | Needs Work — multiple problems |
-| 1/5 🔴 | Poor / Missing — significant rework required |
-
-**Code Quality** — correctness, Python best practices, project conventions, type hints, naming.
-
-**Testing Quality** — edge cases covered, assertions specific, regression tests present, realistic scenarios.
-
-**Documentation Quality** — docstrings complete, parameters and exceptions documented, usage examples present.
-
-Use **GitHub inline comments with `suggestion` blocks** for concrete code-level feedback; reference those permalinks in the summary.
-
-### 4. Risk Assessment
-
-Flag risks explicitly with a severity score (1–5):
-
-- **Breaking changes** — API signature changes, removed features; must include migration notes.
-- **Performance** — O(n²) loops, memory-heavy operations on large arrays; suggest vectorization.
-- **Security** — unvalidated input, credential exposure, unsafe deserialization.
-- **Compatibility** — new Python version requirements, new heavy dependencies, platform-specific code.
-
-### 5. Review Summary Template
-
-```markdown
-## Review Summary
-
-### Recommendation
-[emoji] [Status] — [One-sentence justification]
-
-### PR Completeness
-- ✅ [items complete]
-- ❌ [items missing]
-
-### Quality Scores
-- Code: n/5 [emoji] — [reason]
-- Testing: n/5 [emoji] — [reason]
-- Documentation: n/5 [emoji] — [reason]
-
-### Risk: n/5 [emoji] — [brief description]
-
-### Must Fix
-1. [Specific issue with link to inline comment]
-
-### Suggestions (non-blocking)
-1. [Optional improvement with link to inline suggestion]
-
-### Next Steps
-1. [Clear action item for the author]
-```
-
-### 6. Review Best Practices
-
-**Do:**
-- Use GitHub inline comments and `suggestion` blocks directly on code; reference their permalinks in the summary.
-- Distinguish blocking issues from nice-to-haves.
-- Explain *why* something is a problem, not just *what* is wrong.
-- Acknowledge good work and clever solutions.
-- Defer style nitpicks to automated tools (`ruff`, `pre-commit`).
-
-**Don't:**
-- Give vague feedback like "improve code quality."
-- Assume the author knows project conventions — spell it out.
-- Let perfect be the enemy of good: minor issues shouldn't block useful PRs.
-- Focus only on problems — recognize what's working well.
+- **Contribution workflow** → [CONTRIBUTING.md](CONTRIBUTING.md)
+- **Development standards** → [CONTRIBUTING.md: Development Standards](CONTRIBUTING.md#-development-standards)
+- **PR review format** → [CONTRIBUTING.md: Reviewing PRs](CONTRIBUTING.md#reviewing-prs)
+- **Branch naming** → [CONTRIBUTING.md: Branch Naming](CONTRIBUTING.md#-branch-naming-convention)
+- **Agent behavioral rules** → [AGENTS.md](../AGENTS.md)
+- **Security** → [SECURITY.md](SECURITY.md)

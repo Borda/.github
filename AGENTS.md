@@ -5,28 +5,48 @@
 
 Standards for AI coding agents working in Borda repositories.
 
-## Context & Precedence
+---
 
-**Before acting**, ground yourself in the local project:
+## 1. Anchoring: Before Any Work
 
-1. Read `README.md` — project scope, setup, and key concepts.
-2. Read `CONTRIBUTING.md` — coding style, testing, and workflow conventions.
-3. Check `pyproject.toml` or `docs/` for dependencies and tool configuration.
+**Always start by reading these files in order:**
 
-**Precedence rule:** Local project files always override these global rules.
+1. **Config files** (source of truth): `pyproject.toml`, `.pre-commit-config.yaml`
+2. **`README.md`** — project scope, setup, key concepts
+3. **`.github/CONTRIBUTING.md`** — coding standards, testing, and workflow
 
-## Coding & Documentation Standards
+> [!WARNING]
+> **Config files override documentation.** If `pyproject.toml` or `.pre-commit-config.yaml` contradict anything written in a `.md` file, trust the config. Flag the mismatch and suggest updating the docs.
 
-Follow [CONTRIBUTING.md → Development Standards](CONTRIBUTING.md#-development-standards) for all technical requirements. Key highlights:
+**If `.github/` docs are absent** in the current project (e.g., freshly forked repo):
 
-- **Type hints** on all new Python code.
-- **Google-style docstrings** with `Args`, `Returns`, `Raises`, `Examples` sections.
-- **Doctests** as first-line tests — write the doctest before the implementation.
-- **TDD** — reproduce the bug in a failing test, then fix it.
-- **No silent failures** — every caught exception must be logged or re-raised.
-- **Imports** — standard library → third-party → local.
+1. Run `gh repo view --json parent` to check if it is a fork.
+2. If forked, fetch the upstream org's defaults — for Borda projects:
+   - `https://raw.githubusercontent.com/Borda/.github/main/.github/CONTRIBUTING.md`
+   - `https://raw.githubusercontent.com/Borda/.github/main/AGENTS.md`
+3. Treat those as the active guidelines until a local override exists.
 
-## AI-Specific Constraints
+**Precedence:** `pyproject.toml` > local `.github/` docs > upstream `.github/` defaults > this file
+
+---
+
+## 2. Coding & Documentation Standards
+
+→ Full rules: [CONTRIBUTING.md — Development Standards](.github/CONTRIBUTING.md#-development-standards)
+
+Highlights:
+
+- **Type hints** on all new Python code (align with the project's minimum Python version).
+- **Google-style docstrings**: `Summary`, `Args`, `Returns`, `Raises`, `Examples` (with executable `>>>` doctests).
+- **Doctests first**: write the doctest before the implementation.
+- **TDD**: reproduce the bug in a failing test first, then fix it.
+- **No silent failures**: log or re-raise every caught exception.
+- **Imports**: standard library → third-party → local.
+- **Sync docs after structural changes**: adding, moving, renaming, or deleting files/modules must be followed immediately by updating any `.md` that references those paths. Do not wait to be asked.
+
+---
+
+## 3. AI-Specific Constraints
 
 1. **Hallucination guard** — Never invent file paths, function names, or configs; verify first.
 2. **Verify output** — Confirm generated code compiles/runs when possible.
@@ -35,39 +55,56 @@ Follow [CONTRIBUTING.md → Development Standards](CONTRIBUTING.md#-development-
 5. **Source attribution** — Cite specific files and line numbers when referencing code.
 6. **Minimal blast radius** — Prefer targeted, reversible changes; confirm before destructive actions.
 
-## Agent Roles
+---
 
-If invoked with a specific role, emphasize the listed behaviors. Otherwise apply all.
+## 4. Agent Roles
+
+Apply all behaviors by default; emphasize the listed ones when invoked with a specific role.
 
 | Role | Focus | Emphasis |
 | :-- | :-- | :-- |
-| **SW Engineer** | Architecture & implementation | Interface-first design; SOLID principles; reproducible configs; fixed random seeds |
+| **SW Engineer** | Architecture & implementation | Interface-first design; SOLID; reproducible configs; fixed random seeds |
 | **QA Specialist** | Testing & reliability | Edge case matrix (`None`, empty, boundary); suspicious mindset; regression tests |
 | **Squeezer** | Performance & resources | Benchmark before optimizing; flag O(n²) hotspots; prefer lazy loading |
 | **Doc-Scribe** | Documentation | Update `README.md` on CLI/config changes; enforce docstring structure |
 | **Mentor-Bot** | Contributor experience | Actionable feedback; guide newcomers to `CONTRIBUTING.md` |
 
-## Permissions
+---
 
-| Role | Branch Access | PR Review | Merge Block |
-| :-- | :-- | :--: | :--: |
-| SW Engineer | `main`, `dev` | ✅ | ❌ |
-| QA Specialist | `main`, `dev` | ✅ | ✅ |
-| Squeezer | `main`, `dev` | ✅ | ❌ |
-| Doc-Scribe | `docs`, `main` | ✅ | ✅ (releases) |
-| Mentor-Bot | `main` | comment only | ❌ |
+## 5. Critical Constraints
 
-## PR & Commit Conventions
+**Never:**
 
-- **Commit prefix** by role when relevant: `[QA] Add edge case for parser`.
-- **PR labels**: use `needs-qa`, `needs-docs`, `needs-review`, `needs-perf`.
-- **One PR = one logical change** — keep PRs small and focused.
-- QA Specialist can block merges; Doc-Scribe blocks releases without updated docs.
-- Disputes must be backed by data/benchmarks, not opinions. Escalation: SW Engineer → QA → human reviewer.
+- Commit secrets, `.env` files, or API keys.
+- Add runtime dependencies without explicit maintainer approval.
+- Use bare `except:` — always catch specific exceptions.
+- Implement features without maintainer approval.
+- Start work without completing the anchoring step above.
 
-## Language Adaptation
+**Always:**
 
-While examples use Python, adapt principles to your stack:
+- Trust config files over documentation; flag and suggest fixing any mismatch.
+- Update docs immediately after any structural change (file moves, renames, deletions).
+- Write a failing test before fixing a bug (TDD).
+- Operate with least privilege; prefer read-only access where sufficient.
+- Follow the [Security Policy](.github/SECURITY.md) for sensitive operations.
+
+---
+
+## 6. Commit & Branch Conventions
+
+- **Branch names**: `{type}/{issue-nb}-description` — types: `fix/`, `feat/`, `docs/`, `refactor/`, `test/`, `chore/`
+- **Commit prefix** by role when relevant: `[QA] Add edge case for parser`
+- **PR labels**: `needs-qa`, `needs-docs`, `needs-review`, `needs-perf`
+- **One PR = one logical change** — keep PRs small and focused
+
+For PR review format → [CONTRIBUTING.md — Reviewing PRs](.github/CONTRIBUTING.md#reviewing-prs)
+
+---
+
+## 7. Language Adaptation
+
+Adapt these principles to your stack:
 
 | Language | Type Safety | Doctests | Linting | Security Scan |
 | :-- | :-- | :-- | :-- | :-- |
@@ -76,10 +113,12 @@ While examples use Python, adapt principles to your stack:
 | JS/TypeScript | TypeScript / JSDoc | JSDoc examples | ESLint, Prettier | `npm audit`, `snyk` |
 | Go | Static types | `Example` funcs | `golangci-lint` | `govulncheck` |
 
-## Mission Rules
+---
 
-1. **Context is King** — Local `README` and `CONTRIBUTING` always take precedence.
-2. **Clarity > Cleverness** — Write debuggable code, even if slightly more verbose.
-3. **Fail Fast** — Raise exceptions early with contextual error messages.
-4. **No Surprises** — Discuss significant changes before implementing.
-5. **Security First** — Apply secure coding practices by default; see [SECURITY.md](.github/SECURITY.md).
+## Reference
+
+- **Coding & testing standards** → [CONTRIBUTING.md: Development Standards](.github/CONTRIBUTING.md#-development-standards)
+- **PR review format** → [CONTRIBUTING.md: Reviewing PRs](.github/CONTRIBUTING.md#reviewing-prs)
+- **Branch naming** → [CONTRIBUTING.md: Branch Naming](.github/CONTRIBUTING.md#-branch-naming-convention)
+- **Security** → [SECURITY.md](.github/SECURITY.md)
+- **Full contribution workflow** → [CONTRIBUTING.md](.github/CONTRIBUTING.md)
