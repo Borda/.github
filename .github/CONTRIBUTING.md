@@ -146,6 +146,81 @@ Tests and quality improvements are **always welcome**! These contributions are h
 
 For information about testing when fixing bugs, see the [Fixing Bugs](#-fixing-bugs) section.
 
+## 🐍 Development Standards
+
+This section defines the technical baseline for Python projects in this organization. A specific project's `CONTRIBUTING.md` may extend or override these defaults.
+
+### Code Style
+
+- **Type hints** — All new functions and methods must include type annotations.
+- **Linting** — Code must pass `ruff` checks. Run `pre-commit run --all-files` before committing.
+- **Naming** — Follow PEP 8: `snake_case` for functions/variables, `PascalCase` for classes.
+- **Imports** — Order: standard library → third-party → local (enforced by `ruff --select I`).
+- **Clarity over cleverness** — Write code that is easy to read and debug, even if slightly more verbose.
+
+### Documentation
+
+Every public class and function must include a docstring following [Google style](https://google.github.io/styleguide/pyguide.html#383-functions-and-methods) with these sections:
+
+1. **Summary** — One-line description of what it does.
+2. **Args** — Parameters with types and descriptions.
+3. **Returns** — Return value and type.
+4. **Raises** — Exceptions that may be raised.
+5. **Examples** — Executable `>>>` doctests demonstrating usage.
+
+```python
+def filter_values(data: list[float], threshold: float = 0.5) -> list[float]:
+    """Filter values above a threshold.
+
+    Args:
+        data: Input values to filter.
+        threshold: Minimum value to retain. Must be non-negative.
+
+    Returns:
+        List of values strictly above the threshold.
+
+    Raises:
+        ValueError: If threshold is negative.
+
+    Examples:
+        >>> filter_values([0.1, 0.6, 0.9], threshold=0.5)
+        [0.6, 0.9]
+        >>> filter_values([])
+        []
+    """
+```
+
+### Testing
+
+- **Test-driven** — Write a failing test before fixing a bug or implementing a feature.
+- **Doctests** — Executable `>>>` examples in docstrings serve as first-line unit tests.
+- **Edge cases** — Always cover: `None`, empty inputs (`[]`, `""`), zero/negative values, and boundary conditions.
+- **Specific assertions** — Tests must catch plausible-but-wrong outputs; "no exception raised" is insufficient.
+
+> [!TIP]
+> When reviewing a test, ask: "If this function returned a wrong but plausible value, would this test catch it?" If not, improve the assertion.
+
+### Error Handling
+
+- **Fail fast** — Raise exceptions early; never return magic error codes.
+- **Contextual messages** — Include relevant state in error messages (e.g., input values, expected vs. actual).
+- **No silent failures** — Every caught exception must be logged or re-raised.
+- **Custom exceptions** — Use domain-specific exception classes where it aids clarity.
+
+### Security
+
+- Never commit `.env` files, API keys, or credentials — use environment variables or secret managers.
+- Validate and sanitize all external input (CLI args, file uploads, API responses).
+- Prefer `ruff --select S` for Python security linting in CI.
+- Follow the principle of least privilege: request only the access your code actually needs.
+
+### ML / AI Research Specifics
+
+- **Reproducibility** — Use fixed random seeds; pin dataset versions and model configs.
+- **Data validation** — Assert tensor shapes, dtypes, and value ranges before processing.
+- **Lazy loading** — Prefer deferred imports and on-demand computation for large models/datasets.
+- **Experiment logging** — Track hyperparameters, metrics, and environment details for every run.
+
 ## 💎 Quality Expectations
 
 > [!IMPORTANT]
