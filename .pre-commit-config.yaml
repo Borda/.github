@@ -46,7 +46,7 @@ repos:
     rev: 1.0.0
     hooks:
       - id: mdformat
-        args: ["--number"]
+        args: ["--number", "--wrap=no"]
         additional_dependencies:
           - mdformat-gfm
           - mdformat-ruff

@@ -1,4 +1,5 @@
 > [!IMPORTANT]
+>
 > **Local-only file.** Not automatically recognized by GitHub across repos. Copy to apply in new projects.
 
 # Agent Configuration (Borda Organization)
@@ -15,6 +16,7 @@ Read before acting:
 4. **`.github/CONTRIBUTING.md`** — coding standards, testing, workflow
 
 > [!WARNING]
+>
 > **Config files override docs.** `pyproject.toml` or `.pre-commit-config.yaml` contradicts any `.md` → trust config, flag mismatch.
 
 **No `.github/` docs** (fork or template-derived repo):
@@ -81,6 +83,7 @@ Branch naming → [CONTRIBUTING.md — Branch Naming](.github/CONTRIBUTING.md#-b
 **PR labels**: `needs-qa`, `needs-docs`, `needs-review`, `needs-perf`
 
 > [!NOTE]
+>
 > Labels missing in fork: `gh label create needs-qa --color D93F0B --description "QA review required"` (repeat per label).
 
 One PR = one logical change. TODO/FIXME → [CONTRIBUTING.md: Code Markers](.github/CONTRIBUTING.md#code-markers-todo--fixme). PR review format → [CONTRIBUTING.md — Reviewing PRs](.github/CONTRIBUTING.md#reviewing-prs).

@@ -1,4 +1,5 @@
 > [!IMPORTANT]
+>
 > **Local-only file.** GitHub Copilot only reads `copilot-instructions.md` from the repository it is actively working in — it is **not** automatically applied to other repositories in the organization. To use these instructions in a new project, copy this file into your project's `.github/` directory or fork this repository as a starting point.
 
 # GitHub Copilot Instructions
@@ -14,6 +15,7 @@ ______________________________________________________________________
 Read `README.md` for project-specific setup. Check `pyproject.toml` for tool configuration — **it overrides this file where they conflict.**
 
 > [!WARNING]
+>
 > **Config files are the source of truth.** If `pyproject.toml` or `.pre-commit-config.yaml` contradict any documentation, trust the config and flag the mismatch.
 
 **If `.github/` docs are absent** (e.g., freshly forked repo), check for a fork with `gh repo view --json parent` and load defaults from upstream. For Borda projects:

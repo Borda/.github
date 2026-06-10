@@ -3,9 +3,11 @@
 Thank you for your interest in contributing! We appreciate all contributions and welcome everyone, regardless of experience level. Your help makes this project better for everyone.
 
 > [!TIP]
+>
 > **First time contributing to open source?** Check out [First Contributions](https://github.com/firstcontributions/first-contributions) for a beginner-friendly guide that walks you through the entire process.
 
 > [!NOTE]
+>
 > **Configuration files are the source of truth.** If this documentation ever contradicts `pyproject.toml`, `.pre-commit-config.yaml`, or other config files, trust the config. Please open an issue so the docs can be corrected.
 
 ## 📜 Code of Conduct
@@ -46,6 +48,7 @@ Don't hesitate to ask! Open an issue or use discussions to:
 - Get guidance on where to contribute – Find areas where your skills and interests can make the biggest impact
 
 > [!NOTE]
+>
 > Asking questions shows you're thoughtful and helps everyone learn together.
 
 ## 🐛 Reporting Bugs
@@ -70,6 +73,7 @@ Bug fixing is a great way to contribute! Here's how to get started:
 5. **Submit a PR** – Create a pull request with your fix, linking to the issue it addresses.
 
 > [!TIP]
+>
 > Fixes with tests are more likely to be merged quickly!
 
 ## 💡 Suggesting Improvements
@@ -102,6 +106,7 @@ Here's how to suggest and implement improvements:
 4. **Get consensus** – Ensure there's general agreement from the community before starting implementation.
 
 > [!CAUTION]
+>
 > Always get maintainer approval before implementing new features! This ensures your work aligns with project direction and won't be wasted effort. Features implemented without prior approval may be rejected.
 
 **When you have approval:**
@@ -280,6 +285,7 @@ def filter_values(data: list[float], threshold: float = 0.5) -> list[float]:
 - **Specific assertions** — Tests must catch plausible-but-wrong outputs; "no exception raised" is insufficient.
 
 > [!TIP]
+>
 > When reviewing a test, ask: "If this function returned a wrong but plausible value, would this test catch it?" If not, improve the assertion.
 
 ### Error Handling
@@ -339,6 +345,7 @@ Leave structured comments so that intent and status are visible in the code itse
 ## 💎 Quality Expectations
 
 > [!IMPORTANT]
+>
 > **Always do your best – that's the essential spirit of OSS contributions.**
 
 We value all levels of contribution and want to encourage everyone, regardless of skill level or time available. What matters is being reasonable and meaningful about what you can deliver:
@@ -368,6 +375,7 @@ Follow this pattern to keep the repository organized:
 | `chore/`    | Maintenance tasks — dependency updates, CI tweaks  |
 
 > [!TIP]
+>
 > Always include the issue number when one exists. Without an issue, use a descriptive name: `fix/typo-in-readme`.
 
 ## 🚀 Quick Start

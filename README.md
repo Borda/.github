@@ -1,9 +1,9 @@
 # 🏠 Borda's Default GitHub Configuration
 
-[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/Borda/.github/main.svg)](https://results.pre-commit.ci/latest/github/Borda/.github/main)
-[![Check Markdown links](https://github.com/Borda/.github/actions/workflows/check-md-link.yaml/badge.svg?event=push)](https://github.com/Borda/.github/actions/workflows/check-md-link.yaml)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/Borda/.github/main.svg)](https://results.pre-commit.ci/latest/github/Borda/.github/main) [![Check Markdown links](https://github.com/Borda/.github/actions/workflows/check-md-link.yaml/badge.svg?event=push)](https://github.com/Borda/.github/actions/workflows/check-md-link.yaml)
 
 > [!TIP]
+>
 > **One configuration to rule them all** — Shared defaults for all Borda repositories.
 
 This repository contains **organization-wide default configurations** for all Borda GitHub projects. These files are automatically inherited by any repository that doesn't define its own versions, reducing duplication and ensuring consistency across the organization.
@@ -20,7 +20,8 @@ Managing community health files across multiple repositories can be tedious and 
 **When does this matter?** For small projects or those just starting out, having individual configuration files is often overkill. These defaults provide a solid foundation until a project grows large enough to require customization.
 
 > [!IMPORTANT]
-> **Important for forked repositories**: If you fork one of Borda's repositories, these defaults from the organization `.github` will **not** be honored because your fork is no longer part of the Borda organization. You'll need to either:
+>
+> *Important for forked repositories*\*: If you fork one of Borda's repositories, these defaults from the organization `.github` will **not** be honored because your fork is no longer part of the Borda organization. You'll need to either:
 >
 > 1. Copy the files you need into your forked repository, or
 > 2. Create your own organization's `.github` repository (see [Using This as Your Template](#-using-this-as-your-template) below)
@@ -111,6 +112,7 @@ flowchart TD
 ## 📝 How to Override Configuration
 
 > [!TIP]
+>
 > **Remember this section** when you need custom configuration for a specific project.
 
 To override any default file, simply create the same file in your repository. GitHub will automatically use your local version instead.
@@ -186,6 +188,7 @@ The [`AGENTS.md`](AGENTS.md) file defines standards for AI coding assistants (Gi
 - **Security protocols** and **error handling** best practices
 
 > [!IMPORTANT]
+>
 > Unlike other community health files (`CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, etc.), `AGENTS.md` is **not** automatically inherited by other repositories in the organization. According to [GitHub's documentation on community health files](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file#supported-file-types), only specific file types are supported for automatic inheritance. To use `AGENTS.md` in other projects, you must:
 >
 > 1. **Copy it to each repository** where you want AI agents to follow these standards, or
