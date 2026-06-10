@@ -1,128 +1,129 @@
 > [!IMPORTANT]
-> **Local-only file.** Unlike `CONTRIBUTING.md` or `SECURITY.md`, this file is **not** automatically recognized by GitHub across repositories. To apply these agent standards to a new project, copy this file or fork this repository as a starting point.
+> **Local-only file.** Not automatically recognized by GitHub across repos. Copy to apply in new projects.
 
 # Agent Configuration (Borda Organization)
 
-Standards for AI coding agents working in Borda repositories.
-
 ______________________________________________________________________
 
-## 1. Anchoring: Before Any Work
+## 1. Anchoring
 
-**Always start by reading these files in order:**
+Read before acting:
 
-1. **Config files** (source of truth): `pyproject.toml`, `.pre-commit-config.yaml`
-2. **`README.md`** — project scope, setup, key concepts
-3. **`.github/CONTRIBUTING.md`** — coding standards, testing, and workflow
+1. **This file** (`AGENTS.md`) — behavioral contract; lowest precedence for code decisions
+2. **Default config files**: `pyproject.toml`, `.pre-commit-config.yaml`
+3. **`README.md`** — scope, setup, key concepts
+4. **`.github/CONTRIBUTING.md`** — coding standards, testing, workflow
 
 > [!WARNING]
-> **Config files override documentation.** If `pyproject.toml` or `.pre-commit-config.yaml` contradict anything written in a `.md` file, trust the config. Flag the mismatch and suggest updating the docs.
+> **Config files override docs.** `pyproject.toml` or `.pre-commit-config.yaml` contradicts any `.md` → trust config, flag mismatch.
 
-**If `.github/` docs are absent** in the current project (e.g., freshly forked repo):
+**No `.github/` docs** (fork or template-derived repo):
 
 1. Run `gh repo view --json parent` to check if it is a fork.
-2. If forked, fetch the upstream org's defaults — for Borda projects:
+2. If forked, fetch upstream org's defaults — for Borda projects:
    - `https://raw.githubusercontent.com/Borda/.github/main/.github/CONTRIBUTING.md`
    - `https://raw.githubusercontent.com/Borda/.github/main/AGENTS.md`
-3. Treat those as the active guidelines until a local override exists.
+3. Treat as active guidelines until local override exists.
 
-**Precedence:** `pyproject.toml` > local `.github/` docs > upstream `.github/` defaults > this file
+**Precedence:** `pyproject.toml` > local `.github/` > upstream `.github/` > this file. Repo-scoped vs harness-scoped conflicts → §8.
 
 ______________________________________________________________________
 
 ## 2. Coding & Documentation Standards
 
-→ Full rules: [CONTRIBUTING.md — Development Standards](.github/CONTRIBUTING.md#-development-standards)
-
-Highlights:
-
-- **Type hints** on all new Python code (align with the project's minimum Python version).
-- **Google-style docstrings**: `Summary`, `Args`, `Returns`, `Raises`, `Examples` (with executable `>>>` doctests).
-- **Doctests first**: write the doctest before the implementation.
-- **TDD**: reproduce the bug in a failing test first, then fix it.
-- **No silent failures**: log or re-raise every caught exception.
-- **Imports**: standard library → third-party → local.
-- **Sync docs after structural changes**: adding, moving, renaming, or deleting files/modules must be followed immediately by updating any `.md` that references those paths. Do not wait to be asked.
+→ [CONTRIBUTING.md — Development Standards](.github/CONTRIBUTING.md#-development-standards) (incl. language adaptation for Python, Rust, JS/TS, Go). Agent-specific additions: §3, §4.
 
 ______________________________________________________________________
 
 ## 3. AI-Specific Constraints
 
-1. **Hallucination guard** — Never invent file paths, function names, or configs; verify first.
-2. **Verify output** — Confirm generated code compiles/runs when possible.
-3. **Signal uncertainty** — State confidence when unsure (e.g., "~70% confident…").
-4. **Suspicion is a virtue** — Treat "it looks correct" as insufficient. Verify inputs, outputs, and environment assumptions. If something feels off, say so.
-5. **Human-in-the-loop** — Flag decisions requiring human judgment: architecture changes, security policy, data deletion.
-6. **Source attribution** — Cite specific files and line numbers when referencing code.
-7. **Minimal blast radius** — Prefer targeted, reversible changes; confirm before destructive actions.
-8. **Logging** — Complex logic must emit logs; silent failure is forbidden.
+1. **Hallucination guard** — Never invent paths, names, or configs; verify in codebase first.
+2. **Verify output** — Run affected test or import module before declaring done. If unable, state reason explicitly.
+3. **Signal confidence** — Surface confidence < 80% with percentage and reason. Structured format defined by agent harness.
+4. **Verify when suspicious** — Verify when: (a) result depends on external state, (b) exception caught, (c) "works on my machine" claim, (d) silent success after long op, (e) dev/CI env differs.
+5. **Human-in-loop** — Flag for human judgment: architecture changes, security policy, data deletion, new features (see §4 for fix/feat boundary).
+6. **Source attribution** — Cite file paths and line numbers when referencing code.
+7. **Minimal blast radius** — Prefer reversible changes. Before delete, force-push, or drop: pause and confirm scope.
+8. **Logging** — Emit logs for functions with ≥2 branches, I/O, retry loops, caught exceptions.
 
 ______________________________________________________________________
 
-## 4. Agent Roles
+## 4. Critical Constraints
 
-Apply all behaviors by default; emphasize the listed ones when invoked with a specific role.
+**Fix vs feat:** `fix` = corrects broken behavior (test or obvious regression). `feat` = new user-visible capability. `refine` = improves existing without new capability. Uncertain → treat as `feat`, get approval.
 
-| Role              | Focus                         | Emphasis                                                                         |
-| :---------------- | :---------------------------- | :------------------------------------------------------------------------------- |
-| **SW Engineer**   | Architecture & implementation | Interface-first design; SOLID; reproducible configs; fixed random seeds          |
-| **QA Specialist** | Testing & reliability         | Edge case matrix (`None`, empty, boundary); suspicious mindset; regression tests |
-| **Squeezer**      | Performance & resources       | Benchmark before optimizing; flag O(n²) hotspots; prefer lazy loading            |
-| **Doc-Scribe**    | Documentation                 | Update `README.md` on CLI/config changes; enforce docstring structure            |
-| **Mentor-Bot**    | Contributor experience        | Actionable feedback; guide newcomers to `CONTRIBUTING.md`                        |
+Standard contributor rules (secrets, bare `except:`, feature approval, least privilege, security policy) → [CONTRIBUTING.md — Security](.github/CONTRIBUTING.md#security) and [Building Features](.github/CONTRIBUTING.md#-building-features-with-consensus).
+
+**Agent-specific:** confirm → execute → update docs in same PR for structural changes (moves, renames, deletes).
 
 ______________________________________________________________________
 
-## 5. Critical Constraints
+## 5. Agent Roles
 
-**Never:**
-
-- Commit secrets, `.env` files, or API keys.
-- Add runtime dependencies without explicit maintainer approval.
-- Use bare `except:` — always catch specific exceptions.
-- Implement features without maintainer approval.
-- Start work without completing the anchoring step above.
-
-**Always:**
-
-- Trust config files over documentation; flag and suggest fixing any mismatch.
-- Update docs immediately after any structural change (file moves, renames, deletions).
-- Write a failing test before fixing a bug (TDD).
-- Operate with least privilege; prefer read-only access where sufficient.
-- Follow the [Security Policy](.github/SECURITY.md) for sensitive operations.
+Roles defined in `.github/agents/` (Copilot: `@role-name`) and `foundry:<role>` (Claude Code). All role behaviors apply by default; invoke a specific role to emphasize its focus.
 
 ______________________________________________________________________
 
-## 6. Commit, Branch & Handoff Conventions
+## 6. Commit & PR Conventions
 
-- **Branch names**: `{type}/{issue-number}-short-description` — types: `fix/`, `feat/`, `docs/`, `refactor/`, `test/`, `chore/`
-- **Commit prefix** by role when relevant: `[QA] Add edge case for parser`
-- **PR labels**: `needs-qa`, `needs-docs`, `needs-review`, `needs-perf`
-- **One PR = one logical change** — keep PRs small and focused
+**Commit format** — conventional commits: `type(scope): detail` ≤50 chars.
 
-Use `TODO(wip):` / `TODO:` / `FIXME:` to leave status visible in the code — see [CONTRIBUTING.md: Code Markers](.github/CONTRIBUTING.md#code-markers-todo--fixme) for the full convention and rules.
+Types: `fix`, `feat`, `refactor`, `perf`, `test`, `docs`, `ci`, `chore`, `refine`
 
-For PR review format → [CONTRIBUTING.md — Reviewing PRs](.github/CONTRIBUTING.md#reviewing-prs)
+```
+fix(auth): check token expiry with <=
+test(parser): add edge case for empty input
+docs(readme): update install command
+```
+
+Branch naming → [CONTRIBUTING.md — Branch Naming](.github/CONTRIBUTING.md#-branch-naming-convention).
+
+**PR labels**: `needs-qa`, `needs-docs`, `needs-review`, `needs-perf`
+
+> [!NOTE]
+> Labels missing in fork: `gh label create needs-qa --color D93F0B --description "QA review required"` (repeat per label).
+
+One PR = one logical change. TODO/FIXME → [CONTRIBUTING.md: Code Markers](.github/CONTRIBUTING.md#code-markers-todo--fixme). PR review format → [CONTRIBUTING.md — Reviewing PRs](.github/CONTRIBUTING.md#reviewing-prs).
 
 ______________________________________________________________________
 
-## 7. Language Adaptation
+## 7. Live Document Protocol
 
-Adapt these principles to your stack:
+AGENTS.md = living behavioral contract. Add rules when unexpected agent behaviors occur; don't wait for patterns to repeat.
 
-| Language      | Type Safety        | Doctests        | Linting          | Security Scan       |
-| :------------ | :----------------- | :-------------- | :--------------- | :------------------ |
-| Python        | `typing` module    | `>>> ` blocks   | `ruff`           | `ruff --select S`   |
-| Rust          | Static types       | `///` doc-tests | `clippy`         | `cargo audit`       |
-| JS/TypeScript | TypeScript / JSDoc | JSDoc examples  | ESLint, Prettier | `npm audit`, `snyk` |
-| Go            | Static types       | `Example` funcs | `golangci-lint`  | `govulncheck`       |
+1. Unexpected behavior → add concrete rule to relevant section in this file
+2. Commit: `docs(agents): <what changed>` — one rule per commit; git log is the change history
+
+Downstream forks: compare local version against upstream; pull non-conflicting updates.
+
+______________________________________________________________________
+
+## 8. Conflict Resolution
+
+When this file conflicts with agent harness config:
+
+- **This file wins** — commit format, branch naming, PR labels, test requirements, docstring style
+- **Harness wins** — orchestration, task tracking, output routing, timeouts, structured output formats
+
+______________________________________________________________________
+
+## 9. Debugging Protocol
+
+Never patch symptoms. Symptoms = evidence.
+
+1. **Observe** — collect all failure signals before forming hypothesis
+2. **Hypothesize** — name specific mechanism ("config key X missing → Y falls back to Z → symptom")
+3. **Confirm** — find direct evidence in code/logs/tests; no evidence = no fix
+4. **Fix** — change structural cause; no guard that suppresses symptom without removing cause
+5. **Validate** — re-run all original signals; any remaining → root cause incomplete → back to step 2
+
+**Loop bound**: max 3 iterations; stop, report symptoms, ask maintainer.
+
+**Forbidden**: bare `except` swallowing failures; default-value fallbacks masking missing config; conditional guards hiding broken state.
 
 ______________________________________________________________________
 
 ## Reference
 
-- **Coding & testing standards** → [CONTRIBUTING.md: Development Standards](.github/CONTRIBUTING.md#-development-standards)
-- **PR review format** → [CONTRIBUTING.md: Reviewing PRs](.github/CONTRIBUTING.md#reviewing-prs)
-- **Branch naming** → [CONTRIBUTING.md: Branch Naming](.github/CONTRIBUTING.md#-branch-naming-convention)
-- **Security** → [SECURITY.md](.github/SECURITY.md)
-- **Full contribution workflow** → [CONTRIBUTING.md](.github/CONTRIBUTING.md)
+- [CONTRIBUTING.md](.github/CONTRIBUTING.md) — standards, PR review, branch naming
+- [SECURITY.md](.github/SECURITY.md) — security policy

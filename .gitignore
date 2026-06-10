@@ -1,0 +1,10 @@
+# env settings
+venv/
+
+# pycharm settings
+.idea/
+
+# IA assistant settings
+.claude/
+.notes/
+.temp/

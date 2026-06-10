@@ -303,6 +303,17 @@ def filter_values(data: list[float], threshold: float = 0.5) -> list[float]:
 - **Lazy loading** — Prefer deferred imports and on-demand computation for large models/datasets.
 - **Experiment logging** — Track hyperparameters, metrics, and environment details for every run.
 
+### Language Adaptation
+
+These standards apply across all languages used in Borda projects. Adapt tooling per stack:
+
+| Language      | Type Safety        | Doctests        | Linting          | Security Scan       |
+| :------------ | :----------------- | :-------------- | :--------------- | :------------------ |
+| Python        | `typing` module    | `>>> ` blocks   | `ruff`           | `ruff --select S`   |
+| Rust          | Static types       | `///` doc-tests | `clippy`         | `cargo audit`       |
+| JS/TypeScript | TypeScript / JSDoc | JSDoc examples  | ESLint, Prettier | `npm audit`, `snyk` |
+| Go            | Static types       | `Example` funcs | `golangci-lint`  | `govulncheck`       |
+
 ### Code Markers (TODO / FIXME)
 
 Leave structured comments so that intent and status are visible in the code itself — the next contributor or agent can determine what still needs doing without reading conversation history.
