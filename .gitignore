@@ -3,8 +3,12 @@ venv/
 
 # pycharm settings
 .idea/
+.junie/
 
 # IA assistant settings
+.cache/
 .claude/
+.plans/
 .notes/
+.reports/
 .temp/
