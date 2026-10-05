@@ -29,7 +29,7 @@ repos:
       - id: detect-private-key
 
   - repo: https://github.com/rbubley/mirrors-prettier
-    rev: v3.9.5
+    rev: v3.9.9
     hooks:
       - id: prettier
         files: \.(html|yml|yaml|toml)
@@ -37,7 +37,7 @@ repos:
         args: ["--print-width=120"]
 
   - repo: https://github.com/codespell-project/codespell
-    rev: v2.4.2
+    rev: v2.4.3
     hooks:
       - id: codespell
         args: ["--write-changes"]
